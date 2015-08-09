@@ -20869,7 +20869,7 @@
 
 
 	// module
-	exports.push([module.id, ".h1 {\n  color: red;\n}", ""]);
+	exports.push([module.id, "", ""]);
 
 	// exports
 
