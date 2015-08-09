@@ -1,4 +1,4 @@
 var React = require('react');
-var App = require('./component/component.js');
+var Searcher = require('./component/Searcher/Searcher');
 
-React.render(<App/>, document.body);
+React.render(<Searcher/>, document.body);

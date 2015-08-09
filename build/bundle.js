@@ -45,9 +45,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var App = __webpack_require__(158);
+	var Searcher = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./component/Searcher/Searcher\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	React.render(React.createElement(App, null), document.body);
+	React.render(React.createElement(Searcher, null), document.body);
 
 /***/ },
 /* 1 */
@@ -20423,23 +20423,6 @@
 	module.exports = onlyChild;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 157 */,
-/* 158 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-
-	var App = React.createClass({displayName: "App",
-	  render: function () {
-	    return (
-	      React.createElement("h1", null, "hellasdfsadfsdoworld")
-	    )
-	  }
-	});
-
-	module.exports = App;
 
 /***/ }
 /******/ ]);
