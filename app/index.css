@@ -1,0 +1,122 @@
+html {
+  font: 62.5% sans-serif;
+}
+
+body {
+  font-size: 14px;
+  background-color: rgb(251, 252, 250);
+}
+
+body, p {
+  margin: 0;
+}
+
+a {
+  color: #0089dc;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a:visited {
+  color: #0089dc;
+}
+
+.nv-header {
+  position: fixed;
+  width: 100%;
+  height: 35px;
+  background-color: #24F4F5;
+  border-bottom: 1px solid #24ebec;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+.nv-header p {
+  line-height: 35px;
+  padding-right: 15px;
+  text-align: right;
+}
+
+.nv-searcher {
+  padding-top: 90px;
+}
+
+.nv-searcher form {
+  display: flex;
+  justify-content: center;
+  width: 536px;
+  margin: 0 auto;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+.nv-searcher-input {
+  width: 521px;
+  height: 20px;
+  padding: 9px 7px;
+  font: 16px arial;
+  border: 1px solid #d8d8d8;
+  border-right: 0;
+  vertical-align: top;
+  outline: none;
+  box-shadow: none;
+}
+
+.nv-searcher-submit {
+  cursor: pointer;
+  width: 102px;
+  height: 40px;
+  line-height: 38px;
+  padding: 0;
+  background: none;
+  background-color: #38f;
+  font-size: 16px;
+  color: white;
+  box-shadow: none;
+  font-weight: normal;
+  border: 1px solid #266dff;
+}
+
+.bookmarksbox {
+  margin: 50px auto;
+  width: 1000px;
+  border: 1px solid #ebebeb;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+.bookmarksbox-header {
+  height: 35px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.bookmarksbox-body {
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.bookmarksbox-body-item {
+  float: left;
+  width: 20%;
+  height: 45px;
+  cursor: pointer;
+}
+
+.bookmarksbox-body-item:hover {
+  background-color: #f5f5f5;
+}
+
+.bookmarksbox-body-item a {
+  display: block;
+  line-height: 45px;
+  outline: none;
+  padding-left: 25px;
+}
+
+.avatar {
+  position: fixed;
+  right: 15px;
+  bottom: 0;
+}
+

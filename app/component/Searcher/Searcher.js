@@ -5,7 +5,7 @@ var React = require('react');
 var Searcher = React.createClass({
   render: function () {
     return (
-
+      <p>Helloworld!</p>
     )
   }
 });

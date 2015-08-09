@@ -44,10 +44,12 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
-	var Searcher = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./component/Searcher/Searcher\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	__webpack_require__(162);
 
-	React.render(React.createElement(Searcher, null), document.body);
+	var React = __webpack_require__(1);
+	var App = __webpack_require__(164);
+
+	React.render(React.createElement(App, null), document.body);
 
 /***/ },
 /* 1 */
@@ -20423,6 +20425,429 @@
 	module.exports = onlyChild;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0;
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function createStyleElement() {
+		var styleElement = document.createElement("style");
+		var head = getHeadElement();
+		styleElement.type = "text/css";
+		head.appendChild(styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement() {
+		var linkElement = document.createElement("link");
+		var head = getHeadElement();
+		linkElement.rel = "stylesheet";
+		head.appendChild(linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement());
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement();
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				styleElement.parentNode.removeChild(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement();
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				styleElement.parentNode.removeChild(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(163);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(161)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./index.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./index.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(160)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "html {\n  font: 62.5% sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  position: fixed;\n  width: 100%;\n  height: 35px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  padding-top: 90px;\n}\n\n.nv-searcher form {\n  display: flex;\n  justify-content: center;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 50px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(165);
+	var React = __webpack_require__(1);
+
+	var App = React.createClass({displayName: "App",
+	  render: function () {
+	    return (
+	      React.createElement("div", null, 
+	        React.createElement("header", {className: "nv-header"}, React.createElement("p", null)), 
+	        React.createElement("div", {className: "nv-searcher"}, 
+	          React.createElement("form", {action: "http://www.baidu.com/s", name: "f"}, 
+	            React.createElement("input", {type: "text", className: "nv-searcher-input", name: "wd", id: "kw", maxlength: "100", autocomplete: "off"}), React.createElement("input", {type: "submit", className: "nv-searcher-submit", value: "Search", id: "su"})
+	          )
+	         ), 
+	        React.createElement("div", {className: "bookmarksbox"}, 
+	          React.createElement("div", {className: "bookmarksbox-header"}), 
+	          React.createElement("ul", {className: "bookmarksbox-body"}, 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://www.google.com/", target: "_blank"}, React.createElement("span", null, "Google"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://github.com/", target: "_blank"}, React.createElement("span", null, "Github"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://weibo.com/", target: "_blank"}, React.createElement("span", null, "新浪微博"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.imooc.com/", target: "_blank"}, React.createElement("span", null, "慕课网"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://pan.baidu.com/disk/home", target: "_blank"}, React.createElement("span", null, "百度云盘"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.lishengcn.cn", target: "_blank"}, React.createElement("span", null, "李胜的脚步"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://mail.qq.com", target: "_blank"}, React.createElement("span", null, "QQ邮箱"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://mail.163.com/", target: "_blank"}, React.createElement("span", null, "163邮箱"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://so.baiduyun.me/", target: "_blank"}, React.createElement("span", null, "百度云搜索"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://codepen.io/", target: "_blank"}, React.createElement("span", null, "CodePen"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://segmentfault.com/", target: "_blank"}, React.createElement("span", null, "SegmentFault"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.zhangxinxu.com/wordpress/", target: "_blank"}, React.createElement("span", null, "zxy's Blog"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.ruanyifeng.com/blog/", target: "_blank"}, React.createElement("span", null, "阮一峰"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.liaoxuefeng.com/", target: "_blank"}, React.createElement("span", null, "廖雪峰"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://gold.xitu.io/", target: "_blank"}, React.createElement("span", null, "稀土掘金"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.w3ctech.com/", target: "_blank"}, React.createElement("span", null, "W3CTech"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.w3cplus.com/", target: "_blank"}, React.createElement("span", null, "W3CPlus"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.react-china.org/", target: "_blank"}, React.createElement("span", null, "React China"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.web-tinker.com/", target: "_blank"}, React.createElement("span", null, "次碳酸钴"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.alloyteam.com/", target: "_blank"}, React.createElement("span", null, "alloyteam"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.html-js.com/", target: "_blank"}, React.createElement("span", null, "前端乱炖"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://f2e.souche.com/blog/", target: "_blank"}, React.createElement("span", null, "大搜车前端团队博客")))
+	          )
+	        ), 
+	        React.createElement("div", {className: "bookmarksbox"}, 
+	          React.createElement("div", {className: "bookmarksbox-header"}), 
+	          React.createElement("ul", {className: "bookmarksbox-body"}, 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://tower.im/", target: "_blank"}, React.createElement("span", null, "Tower"))), 
+	            React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://wiki.ele.to:8090/", target: "_blank"}, React.createElement("span", null, "eleme'wiki")))
+	          )
+	        ), 
+	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: ""})
+	      )
+	    )
+	  }
+	});
+
+	module.exports = App;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(166);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(161)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./App.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./App.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(160)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);

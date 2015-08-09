@@ -1,4 +1,6 @@
-var React = require('react');
-var Searcher = require('./component/Searcher/Searcher');
+require('./index.css');
 
-React.render(<Searcher/>, document.body);
+var React = require('react');
+var App = require('./component/App/App');
+
+React.render(<App/>, document.body);
