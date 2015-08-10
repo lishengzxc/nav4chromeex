@@ -1,9 +1,10 @@
 .addurlbutton {
-  height: 36px;
-  width: 36px;
+  height: 35px;
+  width: 35px;
   background-color: #38f;
   color: #fff;
   border: none;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   font-size: 16px;
+  outline: none;
 }

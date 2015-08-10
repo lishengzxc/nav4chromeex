@@ -5,7 +5,7 @@ var Bookmark = React.createClass({
 
   render: function () {
     var bookmarkItem = [];
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 200; i++) {
       bookmarkItem.push(<BookmarkItem key={i}/>)
     }
     return (

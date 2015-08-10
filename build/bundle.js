@@ -86,7 +86,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  position: fixed;\n  width: 100%;\n  height: 35px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  padding-top: 90px;\n}\n\n.nv-searcher form {\n  display: flex;\n  justify-content: center;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 50px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
+	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 50px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
 
 	// exports
 
@@ -20755,7 +20755,6 @@
 	var React = __webpack_require__(5);
 	var Searcher = __webpack_require__(164);
 	var Bookmark = __webpack_require__(167);
-	var AddUrlButton = __webpack_require__(171);
 
 	var App = React.createClass({displayName: "App",
 	  scrollToTop: function () {
@@ -20770,10 +20769,14 @@
 	    };
 	    requestAnimationFrame(toTop);
 	  },
+	  componentDidMount: function () {
+	    document.body.addEventListener('scroll', function () {
+	      console.log(11);
+	    });
+	  },
 	  render: function () {
 	    return (
 	      React.createElement("div", null, 
-	        React.createElement("header", {className: "nv-header"}, React.createElement(AddUrlButton, null)), 
 	        React.createElement(Searcher, null), 
 	        React.createElement(Bookmark, null), 
 	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop})
@@ -20781,6 +20784,7 @@
 	    )
 	  }
 	});
+
 
 	module.exports = App;
 
@@ -20833,9 +20837,26 @@
 	var React = __webpack_require__(5);
 
 	var Searcher = React.createClass({displayName: "Searcher",
+	  componentDidMount: function () {
+	    var searcher = this.refs.searcher.getDOMNode();
+
+
+	    document.addEventListener('scroll', function () {
+
+	      if (searcher.getBoundingClientRect().top < 0) {
+	        searcher.classList.add('searcher-fixed');
+	      }
+
+	      if (document.body.scrollTop < 36) {
+	        searcher.classList.remove('searcher-fixed');
+	      }
+
+
+	    });
+	  },
 	  render: function () {
 	    return (
-	      React.createElement("div", {className: "nv-searcher"}, 
+	      React.createElement("div", {className: "nv-searcher", ref: "searcher"}, 
 	        React.createElement("form", {action: "http://www.baidu.com/s", name: "f"}, 
 	          React.createElement("input", {type: "text", className: "nv-searcher-input", name: "wd", id: "kw", maxlength: "100", autocomplete: "off"}), React.createElement("input", {type: "submit", className: "nv-searcher-submit", value: "Search", id: "su"})
 	        )
@@ -20881,7 +20902,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".searcher-fixed {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  padding: 5px 0;\n  border-bottom: 1px solid #ddd;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  background-color: #f8f8f8;\n}\n\n.searcher-fixed ~.bookmarksbox {\n  margin-top: 131px;\n}\n\n", ""]);
 
 	// exports
 
@@ -20897,7 +20918,7 @@
 
 	  render: function () {
 	    var bookmarkItem = [];
-	    for (var i = 0; i < 100; i++) {
+	    for (var i = 0; i < 200; i++) {
 	      bookmarkItem.push(React.createElement(BookmarkItem, {key: i}))
 	    }
 	    return (
@@ -20964,63 +20985,6 @@
 
 	// module
 	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(172);
-
-	var React = __webpack_require__(5);
-	var AddUrlButton = React.createClass({displayName: "AddUrlButton",
-	  render: function () {
-	    return (
-	      React.createElement("button", {className: "addurlbutton"}, React.createElement("i", {className: "fa fa-plus"}))
-	    )
-	  }
-	});
-
-	module.exports = AddUrlButton;
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(173);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./AddUrlBotton.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./AddUrlBotton.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".addurlbutton {\n  height: 36px;\n  width: 36px;\n  background-color: #38f;\n  color: #fff;\n  border: none;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  font-size: 16px;\n}", ""]);
 
 	// exports
 

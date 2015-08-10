@@ -2,7 +2,6 @@ require('./App.css');
 var React = require('react');
 var Searcher = require('../Searcher/Searcher');
 var Bookmark = require('../Bookmark/Bookmark');
-var AddUrlButton = require('../AddUrlButton/AddUrlButton');
 
 var App = React.createClass({
   scrollToTop: function () {
@@ -17,10 +16,14 @@ var App = React.createClass({
     };
     requestAnimationFrame(toTop);
   },
+  componentDidMount: function () {
+    document.body.addEventListener('scroll', function () {
+      console.log(11);
+    });
+  },
   render: function () {
     return (
       <div>
-        <header className="nv-header"><AddUrlButton/></header>
         <Searcher/>
         <Bookmark/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
@@ -28,5 +31,6 @@ var App = React.createClass({
     )
   }
 });
+
 
 module.exports = App;
