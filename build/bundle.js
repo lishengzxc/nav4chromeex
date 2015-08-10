@@ -20757,14 +20757,25 @@
 	var Bookmark = __webpack_require__(167);
 
 	var App = React.createClass({displayName: "App",
+	  scrollToTop: function (event) {
+	    var app = document.body;
+	    var toTop = function () {
+	      if (app.scrollTop - 20 <= 0) {
+	        app.scrollTop = 0;
+	      } else {
+	        app.scrollTop -= 20;
+	        requestAnimationFrame(toTop);
+	      }
+	    };
+	    requestAnimationFrame(toTop);
+	  },
 	  render: function () {
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement("header", {className: "nv-header"}, React.createElement("p", null)), 
 	        React.createElement(Searcher, null), 
 	        React.createElement(Bookmark, null), 
-	        React.createElement(Bookmark, null), 
-	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: ""})
+	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop})
 	      )
 	    )
 	  }
@@ -20807,7 +20818,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".avatar {\n  cursor: pointer;\n}", ""]);
 
 	// exports
 
@@ -20879,42 +20890,82 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(5);
+	var BookmarkItem = __webpack_require__(168);
 
 	var Bookmark = React.createClass({displayName: "Bookmark",
+
 	  render: function () {
+	    var bookmarkItem = [];
+	    for (var i = 0; i < 100; i++) {
+	      bookmarkItem.push(React.createElement(BookmarkItem, {key: i}))
+	    }
 	    return (
 	      React.createElement("div", {className: "bookmarksbox"}, 
 	        React.createElement("div", {className: "bookmarksbox-header"}), 
-	        React.createElement("ul", {className: "bookmarksbox-body"}, 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://www.google.com/", target: "_blank"}, React.createElement("span", null, "Google"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://github.com/", target: "_blank"}, React.createElement("span", null, "Github"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://weibo.com/", target: "_blank"}, React.createElement("span", null, "新浪微博"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.imooc.com/", target: "_blank"}, React.createElement("span", null, "慕课网"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://pan.baidu.com/disk/home", target: "_blank"}, React.createElement("span", null, "百度云盘"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.lishengcn.cn", target: "_blank"}, React.createElement("span", null, "李胜的脚步"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://mail.qq.com", target: "_blank"}, React.createElement("span", null, "QQ邮箱"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://mail.163.com/", target: "_blank"}, React.createElement("span", null, "163邮箱"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://so.baiduyun.me/", target: "_blank"}, React.createElement("span", null, "百度云搜索"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://codepen.io/", target: "_blank"}, React.createElement("span", null, "CodePen"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://segmentfault.com/", target: "_blank"}, React.createElement("span", null, "SegmentFault"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.zhangxinxu.com/wordpress/", target: "_blank"}, React.createElement("span", null, "zxy's Blog"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.ruanyifeng.com/blog/", target: "_blank"}, React.createElement("span", null, "阮一峰"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.liaoxuefeng.com/", target: "_blank"}, React.createElement("span", null, "廖雪峰"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://gold.xitu.io/", target: "_blank"}, React.createElement("span", null, "稀土掘金"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.w3ctech.com/", target: "_blank"}, React.createElement("span", null, "W3CTech"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.w3cplus.com/", target: "_blank"}, React.createElement("span", null, "W3CPlus"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.react-china.org/", target: "_blank"}, React.createElement("span", null, "React China"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.web-tinker.com/", target: "_blank"}, React.createElement("span", null, "次碳酸钴"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.alloyteam.com/", target: "_blank"}, React.createElement("span", null, "alloyteam"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://www.html-js.com/", target: "_blank"}, React.createElement("span", null, "前端乱炖"))), 
-	          React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "http://f2e.souche.com/blog/", target: "_blank"}, React.createElement("span", null, "大搜车前端团队博客")))
-	        )
+	        React.createElement("ul", {className: "bookmarksbox-body"}, bookmarkItem)
 	      )
 	    )
 	  }
 	});
 
 	module.exports = Bookmark;
+
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(169);
+
+	var React = __webpack_require__(5);
+	var BookmarkItem = React.createClass({displayName: "BookmarkItem",
+	  render: function () {
+	    return (
+	      React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://www.google.com/", target: "_blank"}, React.createElement("span", null, "Google")))
+	    )
+	  }
+	});
+
+	module.exports = BookmarkItem;
+
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(170);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
 
 /***/ }
 /******/ ]);
