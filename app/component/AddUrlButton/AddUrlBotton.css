@@ -1,10 +1,13 @@
 .addurlbutton {
-  height: 35px;
-  width: 35px;
-  background-color: #38f;
-  color: #fff;
+  background-color: transparent;
   border: none;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-  font-size: 16px;
   outline: none;
+  padding: 0 14px 0 0;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.addurlbutton:hover {
+  color: #676767;
 }

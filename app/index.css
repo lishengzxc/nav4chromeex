@@ -86,6 +86,8 @@ a:visited {
   height: 35px;
   background-color: #f9f9f9;
   border-bottom: 1px solid #ebebeb;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .bookmarksbox-body {

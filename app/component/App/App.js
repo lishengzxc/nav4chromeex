@@ -2,6 +2,7 @@ require('./App.css');
 var React = require('react');
 var Searcher = require('../Searcher/Searcher');
 var Bookmark = require('../Bookmark/Bookmark');
+var AddUrlBox = require('../AddUrlBox/AddUrlBox');
 
 var App = React.createClass({
   scrollToTop: function () {
@@ -27,6 +28,7 @@ var App = React.createClass({
         <Searcher/>
         <Bookmark/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
+        <AddUrlBox/>
       </div>
     )
   }

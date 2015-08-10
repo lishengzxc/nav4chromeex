@@ -1,5 +1,6 @@
 var React = require('react');
 var BookmarkItem = require('../BookmarkItem/BookmarkItem');
+var AddUrlButton = require('../AddUrlButton/AddUrlButton');
 
 var Bookmark = React.createClass({
 
@@ -10,7 +11,7 @@ var Bookmark = React.createClass({
     }
     return (
       <div className="bookmarksbox">
-        <div className="bookmarksbox-header"></div>
+        <div className="bookmarksbox-header"><AddUrlButton/></div>
         <ul className="bookmarksbox-body">{bookmarkItem}</ul>
       </div>
     )
