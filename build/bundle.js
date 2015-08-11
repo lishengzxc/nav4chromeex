@@ -20755,7 +20755,6 @@
 	var React = __webpack_require__(5);
 	var Searcher = __webpack_require__(164);
 	var Bookmark = __webpack_require__(167);
-	var AddUrlBotton = __webpack_require__(171);
 
 	var App = React.createClass({displayName: "App",
 
@@ -20778,16 +20777,7 @@
 
 	  getInitialState: function () {
 	    return {
-	      bookmarkList: [{
-	        name: 'Google',
-	        url: 'http://www.google.com'
-	      }, {
-	        name: 'Baidu',
-	        url: 'http://www.baidu.com'
-	      }, {
-	        name: '李胜的脚步',
-	        url: 'http://www.lishengcn.cn'
-	      }]
+	      bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
 	    }
 	  },
 
@@ -20796,7 +20786,6 @@
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement(Searcher, null), 
-	        React.createElement(AddUrlBotton, null), 
 	        React.createElement(Bookmark, {bookmarkList: this.state.bookmarkList}), 
 	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop})
 	      )
@@ -20877,7 +20866,7 @@
 	    return (
 	      React.createElement("div", {className: "nv-searcher", ref: "searcher"}, 
 	        React.createElement("form", {action: "http://www.baidu.com/s", name: "f"}, 
-	          React.createElement("input", {type: "text", className: "nv-searcher-input", name: "wd", id: "kw", maxlength: "100", autocomplete: "off"}), React.createElement("input", {type: "submit", className: "nv-searcher-submit", value: "Search", id: "su"})
+	          React.createElement("input", {type: "text", className: "nv-searcher-input", name: "wd", id: "kw", autoComplete: "off"}), React.createElement("input", {type: "submit", className: "nv-searcher-submit", value: "Search", id: "su"})
 	        )
 	      )
 	    )
@@ -20930,19 +20919,44 @@
 /* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(179);
+
 	var React = __webpack_require__(5);
 	var BookmarkItem = __webpack_require__(174);
 
 	var Bookmark = React.createClass({displayName: "Bookmark",
+	  getInitialState: function () {
+	    return {
+	      s: {
+	        height: '35px',
+	        borderBottom: '1px solid #ebebeb'
+	      }
+	    }
+	  },
+
+	  showAddUrlBox: function () {
+	    this.refs.addurlbox.getDOMNode().style.height = '35px';
+	    this.refs.addurlbox.getDOMNode().style.borderBottom = '1px solid #ebebeb';
+	  },
+
+	  hideAddUrlBox: function () {
+	    this.refs.addurlbox.getDOMNode().style.height = '0';
+	    this.refs.addurlbox.getDOMNode().style.borderBottom = 'none';
+	  },
 
 	  render: function () {
 	    var bookmarkList = this.props.bookmarkList;
 	    return (
 	      React.createElement("div", {className: "bookmarksbox"}, 
-	        React.createElement("div", {className: "bookmarksbox-header"}), 
+	        React.createElement("div", {className: "bookmarksbox-header"}, 
+	          React.createElement("button", {className: "addurlbutton", onClick: this.showAddUrlBox}, React.createElement("i", {className: "fa fa-plus"}))
+	        ), 
+	        React.createElement("div", {className: "addurlbox", ref: "addurlbox", style: this.state.s}, 
+	          React.createElement("input", {placeholder: "name"}), React.createElement("input", {placeholder: "url"}), React.createElement("button", null, "确定"), React.createElement("button", {onClick: this.hideAddUrlBox}, "取消")
+	        ), 
 	        React.createElement("ul", {className: "bookmarksbox-body"}, 
 	           bookmarkList.map(function (result) {
-	            return React.createElement(BookmarkItem, {url: result.url, name: result.name});
+	            return React.createElement(BookmarkItem, {key: result.name, url: result.url, name: result.name});
 	          })
 	        )
 	      )
@@ -20956,64 +20970,9 @@
 /* 168 */,
 /* 169 */,
 /* 170 */,
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(172);
-
-	var React = __webpack_require__(5);
-	var AddUrlButton = React.createClass({displayName: "AddUrlButton",
-
-	  render: function () {
-	    return (
-	      React.createElement("button", {className: "addurlbutton"}, React.createElement("i", {className: "fa fa-plus"}))
-	    )
-	  }
-	});
-
-	module.exports = AddUrlButton;
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(173);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./AddUrlBotton.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./AddUrlBotton.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
+/* 171 */,
+/* 172 */,
+/* 173 */,
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -21070,6 +21029,48 @@
 
 	// module
 	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 177 */,
+/* 178 */,
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(180);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Bookmark.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Bookmark.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input,\n.addurlbox button {\n  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox input {\n  border: 1px solid #d8d8d8;\n  outline: none;\n  height: 28px;\n  padding-left: 10px;\n  box-sizing: border-box;\n  margin-right: 10px;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  height: 28px;\n  width: 50px;\n  margin-right: 10px;\n  color: #fff;\n  cursor: pointer;\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}", ""]);
 
 	// exports
 

@@ -24,7 +24,7 @@ var Searcher = React.createClass({
     return (
       <div className="nv-searcher" ref='searcher'>
         <form action="http://www.baidu.com/s" name="f">
-          <input type="text" className="nv-searcher-input" name="wd" id="kw" maxlength="100" autocomplete="off"/><input type="submit" className="nv-searcher-submit" value="Search" id="su"/>
+          <input type="text" className="nv-searcher-input" name="wd" id="kw" autoComplete="off"/><input type="submit" className="nv-searcher-submit" value="Search" id="su"/>
         </form>
       </div>
     )

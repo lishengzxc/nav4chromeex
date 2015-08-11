@@ -2,7 +2,6 @@ require('./App.css');
 var React = require('react');
 var Searcher = require('../Searcher/Searcher');
 var Bookmark = require('../Bookmark/Bookmark');
-var AddUrlBotton = require('../AddUrlButton/AddUrlButton');
 
 var App = React.createClass({
 
@@ -25,16 +24,7 @@ var App = React.createClass({
 
   getInitialState: function () {
     return {
-      bookmarkList: [{
-        name: 'Google',
-        url: 'http://www.google.com'
-      }, {
-        name: 'Baidu',
-        url: 'http://www.baidu.com'
-      }, {
-        name: '李胜的脚步',
-        url: 'http://www.lishengcn.cn'
-      }]
+      bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
     }
   },
 
@@ -43,7 +33,6 @@ var App = React.createClass({
     return (
       <div>
         <Searcher/>
-        <AddUrlBotton/>
         <Bookmark bookmarkList={this.state.bookmarkList}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
       </div>

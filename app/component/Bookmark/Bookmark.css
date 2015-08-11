@@ -1,0 +1,45 @@
+.addurlbox {
+  height: 0;
+  overflow: hidden;
+  transition: height 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.addurlbox input,
+.addurlbox button {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+}
+
+.addurlbox input {
+  border: 1px solid #d8d8d8;
+  outline: none;
+  height: 28px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+.addurlbox button {
+  border: none;
+  outline: none;
+  height: 28px;
+  width: 50px;
+  margin-right: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.addurlbox button:first-of-type {
+  background-color: #38f;
+}
+
+
+.addurlbutton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
