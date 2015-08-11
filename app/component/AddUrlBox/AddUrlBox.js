@@ -3,14 +3,11 @@ require('./AddUrlBox.css');
 var React = require('react');
 
 var AddUrlBox = React.createClass({
-  render: function () {
-    var s = {
-      display: 'none'
-    };
 
+
+  render: function () {
     return (
-      <div className="addurlbox" style={s}>
-      </div>
+      <div className="addurlbox"></div>
     )
   }
 });

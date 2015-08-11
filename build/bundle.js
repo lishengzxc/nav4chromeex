@@ -20756,8 +20756,10 @@
 	var Searcher = __webpack_require__(164);
 	var Bookmark = __webpack_require__(167);
 	var AddUrlBox = __webpack_require__(174);
+	var AddUrlBotton = __webpack_require__(171);
 
 	var App = React.createClass({displayName: "App",
+
 	  scrollToTop: function () {
 	    var app = document.body;
 	    var toTop = function () {
@@ -20770,16 +20772,28 @@
 	    };
 	    requestAnimationFrame(toTop);
 	  },
+
 	  componentDidMount: function () {
-	    document.body.addEventListener('scroll', function () {
-	      console.log(11);
-	    });
+
 	  },
+
+	  getInitialState: function () {
+	    return {
+	      addUrlBoxStyle: {
+	        display: 'none'
+	      }
+	    }
+	  },
+
+
+
 	  render: function () {
+
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement(Searcher, null), 
-	        React.createElement(Bookmark, null), 
+	        React.createElement(AddUrlBotton, null), 
+	        React.createElement(Bookmark, {item: ['Apple', 'Banana', 'Cranberry']}), 
 	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop}), 
 	        React.createElement(AddUrlBox, null)
 	      )
@@ -20914,20 +20928,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(5);
-	var BookmarkItem = __webpack_require__(168);
-	var AddUrlButton = __webpack_require__(171);
 
 	var Bookmark = React.createClass({displayName: "Bookmark",
 
 	  render: function () {
-	    var bookmarkItem = [];
-	    for (var i = 0; i < 200; i++) {
-	      bookmarkItem.push(React.createElement(BookmarkItem, {key: i}))
-	    }
+
 	    return (
 	      React.createElement("div", {className: "bookmarksbox"}, 
-	        React.createElement("div", {className: "bookmarksbox-header"}, React.createElement(AddUrlButton, null)), 
-	        React.createElement("ul", {className: "bookmarksbox-body"}, bookmarkItem)
+	        React.createElement("div", {className: "bookmarksbox-header"}), 
+	        React.createElement("ul", {className: "bookmarksbox-body"}
+
+	        )
 	      )
 	    )
 	  }
@@ -20936,63 +20947,9 @@
 	module.exports = Bookmark;
 
 /***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(169);
-
-	var React = __webpack_require__(5);
-	var BookmarkItem = React.createClass({displayName: "BookmarkItem",
-	  render: function () {
-	    return (
-	      React.createElement("li", {className: "bookmarksbox-body-item"}, React.createElement("a", {href: "https://www.google.com/", target: "_blank"}, React.createElement("span", null, "Google")))
-	    )
-	  }
-	});
-
-	module.exports = BookmarkItem;
-
-/***/ },
-/* 169 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(170);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
+/* 168 */,
+/* 169 */,
+/* 170 */,
 /* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -21000,12 +20957,10 @@
 
 	var React = __webpack_require__(5);
 	var AddUrlButton = React.createClass({displayName: "AddUrlButton",
-	  showAddUrlBox: function () {
 
-	  },
 	  render: function () {
 	    return (
-	      React.createElement("button", {className: "addurlbutton", onClick: this.showAddUrlBox}, React.createElement("i", {className: "fa fa-plus"}))
+	      React.createElement("button", {className: "addurlbutton"}, React.createElement("i", {className: "fa fa-plus"}))
 	    )
 	  }
 	});
@@ -21047,7 +21002,7 @@
 
 
 	// module
-	exports.push([module.id, ".addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  padding: 0 14px 0 0;\n  font-size: 14px;\n  color: #ccc;\n  cursor: pointer;\n}\n\n.addurlbutton:hover {\n  color: #676767;\n}", ""]);
+	exports.push([module.id, "", ""]);
 
 	// exports
 
@@ -21061,14 +21016,11 @@
 	var React = __webpack_require__(5);
 
 	var AddUrlBox = React.createClass({displayName: "AddUrlBox",
-	  render: function () {
-	    var s = {
-	      display: 'none'
-	    };
 
+
+	  render: function () {
 	    return (
-	      React.createElement("div", {className: "addurlbox", style: s}
-	      )
+	      React.createElement("div", {className: "addurlbox"})
 	    )
 	  }
 	});
