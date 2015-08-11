@@ -2,7 +2,6 @@ require('./App.css');
 var React = require('react');
 var Searcher = require('../Searcher/Searcher');
 var Bookmark = require('../Bookmark/Bookmark');
-var AddUrlBox = require('../AddUrlBox/AddUrlBox');
 var AddUrlBotton = require('../AddUrlButton/AddUrlButton');
 
 var App = React.createClass({
@@ -26,13 +25,18 @@ var App = React.createClass({
 
   getInitialState: function () {
     return {
-      addUrlBoxStyle: {
-        display: 'none'
-      }
+      bookmarkList: [{
+        name: 'Google',
+        url: 'http://www.google.com'
+      }, {
+        name: 'Baidu',
+        url: 'http://www.baidu.com'
+      }, {
+        name: '李胜的脚步',
+        url: 'http://www.lishengcn.cn'
+      }]
     }
   },
-
-
 
   render: function () {
 
@@ -40,9 +44,8 @@ var App = React.createClass({
       <div>
         <Searcher/>
         <AddUrlBotton/>
-        <Bookmark item={['Apple', 'Banana', 'Cranberry']}/>
+        <Bookmark bookmarkList={this.state.bookmarkList}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
-        <AddUrlBox/>
       </div>
     )
   }
