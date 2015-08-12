@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "lisheng",
+  "description": "我的首页导航栏",
+  "version": "0.1",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
