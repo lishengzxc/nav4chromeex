@@ -2,13 +2,29 @@
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 5px 0;
+  padding: 15px 0 5px 0;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   background-color: #f8f8f8;
 }
 
 .searcher-fixed ~.bookmarksbox {
-  margin-top: 131px;
+  margin-top: 156px;
+}
+
+.nv-searchengines {
+  width: 536px;
+  text-align: right;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+label {
+  margin: 0 5px;
+  color: #aaaaaa;
+}
+
+.nv-searchengines [type="radio"]:checked+label {
+  color: #000;
 }
 

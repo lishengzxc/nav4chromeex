@@ -86,7 +86,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 50px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
+	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
 
 	// exports
 
@@ -20776,8 +20776,20 @@
 	  },
 
 	  getInitialState: function () {
+	    var i = 0;
+	    var data = {
+	      name: Math.random(),
+	      url: Math.random()
+	    };
+	    var list = [];
+	    for (var j = 0; j < 200; j++) {
+	      data.key = j;
+	      list.push(JSON.parse(JSON.stringify(data)));
+	    }
+	    console.log(list);
 	    return {
-	      bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
+	      //bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
+	      bookmarkList: list
 	    }
 	  },
 
@@ -20853,6 +20865,14 @@
 	var React = __webpack_require__(5);
 
 	var Searcher = React.createClass({displayName: "Searcher",
+
+	  getInitialState: function () {
+	    return {
+	      action: 'http://www.baidu.com/s',
+	      name: 'wd'
+	    }
+	  },
+
 	  componentDidMount: function () {
 	    var searcher = this.refs.searcher.getDOMNode();
 
@@ -20863,18 +20883,37 @@
 	        searcher.classList.add('searcher-fixed');
 	      }
 
-	      if (document.body.scrollTop < 36) {
+	      if (document.body.scrollTop < 25) {
 	        searcher.classList.remove('searcher-fixed');
 	      }
 
 
 	    });
 	  },
+
+	  changeSearchEngines: function (event) {
+	    if (event.target.id === 'google') {
+	      this.setState({
+	        action: 'https://www.google.com/search',
+	        name: 'q'
+	      });
+	    } else {
+	      this.setState({
+	        action: 'http://www.baidu.com/s',
+	        name: 'wd'
+	      });
+	    }
+	  },
+
 	  render: function () {
 	    return (
 	      React.createElement("div", {className: "nv-searcher", ref: "searcher"}, 
-	        React.createElement("form", {action: "http://www.baidu.com/s", name: "f"}, 
-	          React.createElement("input", {type: "text", className: "nv-searcher-input", name: "wd", id: "kw", autoComplete: "off"}), React.createElement("input", {type: "submit", className: "nv-searcher-submit", value: "Search", id: "su"})
+	        React.createElement("form", {action: this.state.action, name: "f"}, 
+	          React.createElement("input", {type: "text", className: "nv-searcher-input", name: this.state.name, autoComplete: "off"}), React.createElement("input", {type: "submit", className: "nv-searcher-submit", value: "Search"})
+	        ), 
+	        React.createElement("div", {className: "nv-searchengines"}, 
+	          React.createElement("input", {type: "radio", id: "baidu", name: "searchengines", defaultChecked: true, onClick: this.changeSearchEngines}), React.createElement("label", {htmlFor: "baidu"}, "Baidu"), 
+	          React.createElement("input", {type: "radio", id: "google", name: "searchengines", onClick: this.changeSearchEngines}), React.createElement("label", {htmlFor: "google"}, "Google")
 	        )
 	      )
 	    )
@@ -20918,7 +20957,7 @@
 
 
 	// module
-	exports.push([module.id, ".searcher-fixed {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  padding: 5px 0;\n  border-bottom: 1px solid #ddd;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  background-color: #f8f8f8;\n}\n\n.searcher-fixed ~.bookmarksbox {\n  margin-top: 131px;\n}\n\n", ""]);
+	exports.push([module.id, ".searcher-fixed {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  padding: 15px 0 5px 0;\n  border-bottom: 1px solid #ddd;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  background-color: #f8f8f8;\n}\n\n.searcher-fixed ~.bookmarksbox {\n  margin-top: 156px;\n}\n\n.nv-searchengines {\n  width: 536px;\n  text-align: right;\n  margin: 0 auto;\n  padding: 15px 0;\n}\n\nlabel {\n  margin: 0 5px;\n  color: #aaaaaa;\n}\n\n.nv-searchengines [type=\"radio\"]:checked+label {\n  color: #000;\n}\n\n", ""]);
 
 	// exports
 
@@ -20929,17 +20968,14 @@
 
 	__webpack_require__(168);
 
-	var React = __webpack_require__(173);
-	var BookmarkItem = __webpack_require__(170);
+	var React = __webpack_require__(170);
+	var BookmarkItem = __webpack_require__(188);
 
 	var Bookmark = React.createClass({displayName: "Bookmark",
 	  mixins: [React.addons.LinkedStateMixin],
 	  getInitialState: function () {
 	    return {
-	      s: {
-	        height: '35px',
-	        borderBottom: '1px solid #ebebeb'
-	      }
+
 	    }
 	  },
 
@@ -20971,7 +21007,7 @@
 	        React.createElement("div", {className: "bookmarksbox-header"}, 
 	          React.createElement("button", {className: "addurlbutton", onClick: this.showAddUrlBox}, React.createElement("i", {className: "fa fa-plus"}))
 	        ), 
-	        React.createElement("div", {className: "addurlbox", ref: "addurlbox", style: this.state.s}, 
+	        React.createElement("div", {className: "addurlbox", ref: "addurlbox"}, 
 	          React.createElement("form", {ref: "addform"}, 
 	            React.createElement("input", {placeholder: "name", valueLink: this.linkState('name')}), 
 	            React.createElement("input", {placeholder: "url", valueLink: this.linkState('url')})
@@ -20981,7 +21017,7 @@
 	        ), 
 	        React.createElement("ul", {className: "bookmarksbox-body"}, 
 	           bookmarkList.map(function (result) {
-	            return React.createElement(BookmarkItem, {key: result.name, url: result.url, name: result.name});
+	            return React.createElement(BookmarkItem, {key: result.key, url: result.url, name: result.name});
 	          })
 	        )
 	      )
@@ -21035,72 +21071,11 @@
 /* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(171);
+	module.exports = __webpack_require__(171);
 
-	var React = __webpack_require__(5);
-	var BookmarkItem = React.createClass({displayName: "BookmarkItem",
-	  render: function () {
-	    return (
-	      React.createElement("li", {className: "bookmarksbox-body-item"}, 
-	        React.createElement("a", {href: this.props.url, target: "_blank"}, 
-	          React.createElement("span", null, this.props.name)
-	        )
-	      )
-	    )
-	  }
-	});
-
-	module.exports = BookmarkItem;
 
 /***/ },
 /* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(172);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "", ""]);
-
-	// exports
-
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(174);
-
-
-/***/ },
-/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21123,18 +21098,18 @@
 
 	'use strict';
 
-	var LinkedStateMixin = __webpack_require__(175);
+	var LinkedStateMixin = __webpack_require__(172);
 	var React = __webpack_require__(6);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(178);
-	var ReactCSSTransitionGroup = __webpack_require__(179);
+	  __webpack_require__(175);
+	var ReactCSSTransitionGroup = __webpack_require__(176);
 	var ReactFragment = __webpack_require__(14);
-	var ReactTransitionGroup = __webpack_require__(180);
+	var ReactTransitionGroup = __webpack_require__(177);
 	var ReactUpdates = __webpack_require__(30);
 
-	var cx = __webpack_require__(188);
-	var cloneWithProps = __webpack_require__(182);
-	var update = __webpack_require__(189);
+	var cx = __webpack_require__(185);
+	var cloneWithProps = __webpack_require__(179);
+	var update = __webpack_require__(186);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -21151,7 +21126,7 @@
 
 	if ("production" !== process.env.NODE_ENV) {
 	  React.addons.Perf = __webpack_require__(154);
-	  React.addons.TestUtils = __webpack_require__(190);
+	  React.addons.TestUtils = __webpack_require__(187);
 	}
 
 	module.exports = React;
@@ -21159,7 +21134,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 175 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21176,8 +21151,8 @@
 
 	'use strict';
 
-	var ReactLink = __webpack_require__(176);
-	var ReactStateSetters = __webpack_require__(177);
+	var ReactLink = __webpack_require__(173);
+	var ReactStateSetters = __webpack_require__(174);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -21204,7 +21179,7 @@
 
 
 /***/ },
-/* 176 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21281,7 +21256,7 @@
 
 
 /***/ },
-/* 177 */
+/* 174 */
 /***/ function(module, exports) {
 
 	/**
@@ -21391,7 +21366,7 @@
 
 
 /***/ },
-/* 178 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21444,7 +21419,7 @@
 
 
 /***/ },
-/* 179 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21466,10 +21441,10 @@
 	var assign = __webpack_require__(17);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(180)
+	  __webpack_require__(177)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(185)
+	  __webpack_require__(182)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -21518,7 +21493,7 @@
 
 
 /***/ },
-/* 180 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21535,10 +21510,10 @@
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var ReactTransitionChildMapping = __webpack_require__(181);
+	var ReactTransitionChildMapping = __webpack_require__(178);
 
 	var assign = __webpack_require__(17);
-	var cloneWithProps = __webpack_require__(182);
+	var cloneWithProps = __webpack_require__(179);
 	var emptyFunction = __webpack_require__(20);
 
 	var ReactTransitionGroup = React.createClass({
@@ -21752,7 +21727,7 @@
 
 
 /***/ },
-/* 181 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21861,7 +21836,7 @@
 
 
 /***/ },
-/* 182 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21879,7 +21854,7 @@
 	'use strict';
 
 	var ReactElement = __webpack_require__(15);
-	var ReactPropTransferer = __webpack_require__(183);
+	var ReactPropTransferer = __webpack_require__(180);
 
 	var keyOf = __webpack_require__(43);
 	var warning = __webpack_require__(19);
@@ -21923,7 +21898,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 183 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21941,7 +21916,7 @@
 
 	var assign = __webpack_require__(17);
 	var emptyFunction = __webpack_require__(20);
-	var joinClasses = __webpack_require__(184);
+	var joinClasses = __webpack_require__(181);
 
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -22037,7 +22012,7 @@
 
 
 /***/ },
-/* 184 */
+/* 181 */
 /***/ function(module, exports) {
 
 	/**
@@ -22082,7 +22057,7 @@
 
 
 /***/ },
-/* 185 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22101,8 +22076,8 @@
 
 	var React = __webpack_require__(6);
 
-	var CSSCore = __webpack_require__(186);
-	var ReactTransitionEvents = __webpack_require__(187);
+	var CSSCore = __webpack_require__(183);
+	var ReactTransitionEvents = __webpack_require__(184);
 
 	var onlyChild = __webpack_require__(160);
 	var warning = __webpack_require__(19);
@@ -22233,7 +22208,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 186 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22348,7 +22323,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 187 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22463,7 +22438,7 @@
 
 
 /***/ },
-/* 188 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22522,7 +22497,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 189 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22696,7 +22671,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 190 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23211,6 +23186,67 @@
 	}
 
 	module.exports = ReactTestUtils;
+
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(189);
+
+	var React = __webpack_require__(5);
+	var BookmarkItem = React.createClass({displayName: "BookmarkItem",
+	  render: function () {
+	    return (
+	      React.createElement("li", {className: "bookmarksbox-body-item"}, 
+	        React.createElement("a", {href: this.props.url, target: "_blank"}, 
+	          React.createElement("span", null, this.props.name)
+	        )
+	      )
+	    )
+	  }
+	});
+
+	module.exports = BookmarkItem;
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(190);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./BookmarkItem.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
 
 
 /***/ }

@@ -7,10 +7,7 @@ var Bookmark = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
     return {
-      s: {
-        height: '35px',
-        borderBottom: '1px solid #ebebeb'
-      }
+
     }
   },
 
@@ -42,7 +39,7 @@ var Bookmark = React.createClass({
         <div className="bookmarksbox-header">
           <button className="addurlbutton" onClick={this.showAddUrlBox}><i className="fa fa-plus"></i></button>
         </div>
-        <div className="addurlbox" ref='addurlbox' style={this.state.s}>
+        <div className="addurlbox" ref='addurlbox'>
           <form ref='addform'>
             <input placeholder='name' valueLink={this.linkState('name')}/>
             <input placeholder="url" valueLink={this.linkState('url')}/>
@@ -52,7 +49,7 @@ var Bookmark = React.createClass({
         </div>
         <ul className="bookmarksbox-body">
           { bookmarkList.map(function (result) {
-            return <BookmarkItem key={result.name} url={result.url} name={result.name} />;
+            return <BookmarkItem key={result.key} url={result.url} name={result.name} />;
           }) }
         </ul>
       </div>

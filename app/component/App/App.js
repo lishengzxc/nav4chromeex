@@ -23,8 +23,20 @@ var App = React.createClass({
   },
 
   getInitialState: function () {
+    var i = 0;
+    var data = {
+      name: Math.random(),
+      url: Math.random()
+    };
+    var list = [];
+    for (var j = 0; j < 200; j++) {
+      data.key = j;
+      list.push(JSON.parse(JSON.stringify(data)));
+    }
+    console.log(list);
     return {
-      bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
+      //bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
+      bookmarkList: list
     }
   },
 
