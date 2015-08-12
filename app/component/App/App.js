@@ -28,12 +28,20 @@ var App = React.createClass({
     }
   },
 
+  onAddUrl: function (newUrl) {
+    var list = this.state.bookmarkList.concat(newUrl);
+    this.setState({
+      bookmarkList: list
+    });
+    localStorage.setItem('bookmarkList', JSON.stringify(list));
+  },
+
   render: function () {
 
     return (
       <div>
         <Searcher/>
-        <Bookmark bookmarkList={this.state.bookmarkList}/>
+        <Bookmark bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
       </div>
     )

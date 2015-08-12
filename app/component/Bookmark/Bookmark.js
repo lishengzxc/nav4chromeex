@@ -1,9 +1,10 @@
 require('./Bookmark.css');
 
-var React = require('react');
+var React = require('react/addons');
 var BookmarkItem = require('../BookmarkItem/BookmarkItem');
 
 var Bookmark = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
     return {
       s: {
@@ -23,6 +24,17 @@ var Bookmark = React.createClass({
     this.refs.addurlbox.getDOMNode().style.borderBottom = 'none';
   },
 
+  addUrl: function () {
+    var newUrl = {
+      name: this.state.name,
+      url: this.state.url
+    };
+
+    this.props.onAddUrl(newUrl);
+    this.state.name = '';
+    this.state.url = ''
+  },
+
   render: function () {
     var bookmarkList = this.props.bookmarkList;
     return (
@@ -31,7 +43,12 @@ var Bookmark = React.createClass({
           <button className="addurlbutton" onClick={this.showAddUrlBox}><i className="fa fa-plus"></i></button>
         </div>
         <div className="addurlbox" ref='addurlbox' style={this.state.s}>
-          <input placeholder='name'/><input placeholder="url"/><button>确定</button><button onClick={this.hideAddUrlBox}>取消</button>
+          <form ref='addform'>
+            <input placeholder='name' valueLink={this.linkState('name')}/>
+            <input placeholder="url" valueLink={this.linkState('url')}/>
+          </form>
+          <button onClick={this.addUrl}>确定</button>
+          <button onClick={this.hideAddUrlBox}>取消</button>
         </div>
         <ul className="bookmarksbox-body">
           { bookmarkList.map(function (result) {

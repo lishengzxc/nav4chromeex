@@ -7,26 +7,21 @@
   justify-content: flex-end;
 }
 
-.addurlbox input,
-.addurlbox button {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
-}
-
 .addurlbox input {
-  border: 1px solid #d8d8d8;
+  border: none;
+  border-left: 1px solid #d8d8d8;
   outline: none;
-  height: 28px;
+  height: 35px;
   padding-left: 10px;
+  width: 200px;
   box-sizing: border-box;
-  margin-right: 10px;
 }
 
 .addurlbox button {
   border: none;
   outline: none;
-  height: 28px;
+  height: 35px;
   width: 50px;
-  margin-right: 10px;
   color: #fff;
   cursor: pointer;
 }
