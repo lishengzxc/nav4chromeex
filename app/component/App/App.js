@@ -23,24 +23,28 @@ var App = React.createClass({
   },
 
   getInitialState: function () {
-    var i = 0;
-    var data = {
-      name: Math.random(),
-      url: Math.random()
-    };
-    var list = [];
-    for (var j = 0; j < 200; j++) {
-      data.key = j;
-      list.push(JSON.parse(JSON.stringify(data)));
-    }
-    console.log(list);
+    //var i = 0;
+    //var data = {
+    //  name: Math.random(),
+    //  url: Math.random()
+    //};
+    //var list = [];
+    //for (var j = 0; j < 200; j++) {
+    //  data.key = j;
+    //  list.push(JSON.parse(JSON.stringify(data)));
+    //}
+    //console.log(list);
+    var list = JSON.parse(localStorage.getItem('bookmarkList') ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
+    list.forEach(function (value, index) {
+      value.key = index;
+    });
     return {
-      //bookmarkList: JSON.parse(localStorage.getItem('bookmarkList'))
       bookmarkList: list
     }
   },
 
   onAddUrl: function (newUrl) {
+    newUrl.key = this.state.bookmarkList.length;
     var list = this.state.bookmarkList.concat(newUrl);
     this.setState({
       bookmarkList: list
