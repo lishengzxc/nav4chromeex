@@ -21,13 +21,15 @@ var Bookmark = React.createClass({
     this.refs.addurlbox.getDOMNode().style.borderBottom = 'none';
   },
 
-  addUrl: function () {
+  addUrl: function (event) {
+    event.preventDefault();
     var newUrl = {
       name: this.state.name,
       url: this.state.url
     };
 
     this.props.onAddUrl(newUrl);
+    this.hideAddUrlBox();
     this.state.name = '';
     this.state.url = ''
   },
@@ -39,13 +41,13 @@ var Bookmark = React.createClass({
         <div className="bookmarksbox-header">
           <button className="addurlbutton" onClick={this.showAddUrlBox}><i className="fa fa-plus"></i></button>
         </div>
-        <div className="addurlbox" ref='addurlbox'>
+        <div className="addurlbox" ref='addurlbox' onSubmit={this.addUrl}>
           <form ref='addform'>
-            <input placeholder='name' valueLink={this.linkState('name')}/>
-            <input placeholder="url" valueLink={this.linkState('url')}/>
+            <input type="text" placeholder='name' valueLink={this.linkState('name')}/>
+            <input type="url" placeholder="url" valueLink={this.linkState('url')}/>
+            <button type="submit"><i className="fa fa-check"></i></button>
+            <button type="reset" onClick={this.hideAddUrlBox}><i className="fa fa-close"></i></button>
           </form>
-          <button onClick={this.addUrl}>确定</button>
-          <button onClick={this.hideAddUrlBox}>取消</button>
         </div>
         <ul className="bookmarksbox-body">
           { bookmarkList.map(function (result) {

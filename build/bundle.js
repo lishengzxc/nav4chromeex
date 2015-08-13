@@ -20993,13 +20993,15 @@
 	    this.refs.addurlbox.getDOMNode().style.borderBottom = 'none';
 	  },
 
-	  addUrl: function () {
+	  addUrl: function (event) {
+	    event.preventDefault();
 	    var newUrl = {
 	      name: this.state.name,
 	      url: this.state.url
 	    };
 
 	    this.props.onAddUrl(newUrl);
+	    this.hideAddUrlBox();
 	    this.state.name = '';
 	    this.state.url = ''
 	  },
@@ -21011,13 +21013,13 @@
 	        React.createElement("div", {className: "bookmarksbox-header"}, 
 	          React.createElement("button", {className: "addurlbutton", onClick: this.showAddUrlBox}, React.createElement("i", {className: "fa fa-plus"}))
 	        ), 
-	        React.createElement("div", {className: "addurlbox", ref: "addurlbox"}, 
+	        React.createElement("div", {className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl}, 
 	          React.createElement("form", {ref: "addform"}, 
-	            React.createElement("input", {placeholder: "name", valueLink: this.linkState('name')}), 
-	            React.createElement("input", {placeholder: "url", valueLink: this.linkState('url')})
-	          ), 
-	          React.createElement("button", {onClick: this.addUrl}, "确定"), 
-	          React.createElement("button", {onClick: this.hideAddUrlBox}, "取消")
+	            React.createElement("input", {type: "text", placeholder: "name", valueLink: this.linkState('name')}), 
+	            React.createElement("input", {type: "url", placeholder: "url", valueLink: this.linkState('url')}), 
+	            React.createElement("button", {type: "submit"}, React.createElement("i", {className: "fa fa-check"})), 
+	            React.createElement("button", {type: "reset", onClick: this.hideAddUrlBox}, React.createElement("i", {className: "fa fa-close"}))
+	          )
 	        ), 
 	        React.createElement("ul", {className: "bookmarksbox-body"}, 
 	           bookmarkList.map(function (result) {
@@ -21066,7 +21068,7 @@
 
 
 	// module
-	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  height: 35px;\n  width: 50px;\n  color: #fff;\n  cursor: pointer;\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}", ""]);
+	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox form {\n  display: flex;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 65px;\n  color: #fff;\n  cursor: pointer;\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}", ""]);
 
 	// exports
 
@@ -23202,7 +23204,7 @@
 	var BookmarkItem = React.createClass({displayName: "BookmarkItem",
 	  render: function () {
 	    return (
-	      React.createElement("li", {className: "bookmarksbox-body-item"}, 
+	      React.createElement("li", {className: "c bookmarksbox-body-item"}, 
 	        React.createElement("a", {href: this.props.url, target: "_blank"}, 
 	          React.createElement("span", null, this.props.name)
 	        )
@@ -23248,7 +23250,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".bookmarksbox-body-item {\n}\n\n\n", ""]);
 
 	// exports
 

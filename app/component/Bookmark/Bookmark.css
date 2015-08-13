@@ -17,11 +17,14 @@
   box-sizing: border-box;
 }
 
+.addurlbox form {
+  display: flex;
+}
+
 .addurlbox button {
   border: none;
   outline: none;
-  height: 35px;
-  width: 50px;
+  width: 65px;
   color: #fff;
   cursor: pointer;
 }
