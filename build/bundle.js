@@ -21018,8 +21018,8 @@
 	        ), 
 	        React.createElement("div", {className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl}, 
 	          React.createElement("form", {ref: "addform"}, 
-	            React.createElement("input", {type: "text", placeholder: "name", valueLink: this.linkState('name')}), 
-	            React.createElement("input", {type: "url", placeholder: "url", valueLink: this.linkState('url')}), 
+	            React.createElement("input", {type: "text", placeholder: "Google", valueLink: this.linkState('name')}), 
+	            React.createElement("input", {type: "url", placeholder: "https://www.google.com", valueLink: this.linkState('url')}), 
 	            React.createElement("button", {type: "submit"}, React.createElement("i", {className: "fa fa-check"})), 
 	            React.createElement("button", {type: "reset", onClick: this.hideAddUrlBox}, React.createElement("i", {className: "fa fa-close"}))
 	          )
