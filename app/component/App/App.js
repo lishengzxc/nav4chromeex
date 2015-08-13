@@ -23,18 +23,7 @@ var App = React.createClass({
   },
 
   getInitialState: function () {
-    //var i = 0;
-    //var data = {
-    //  name: Math.random(),
-    //  url: Math.random()
-    //};
-    //var list = [];
-    //for (var j = 0; j < 200; j++) {
-    //  data.key = j;
-    //  list.push(JSON.parse(JSON.stringify(data)));
-    //}
-    //console.log(list);
-    var list = JSON.parse(localStorage.getItem('bookmarkList') ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
+    var list = JSON.parse(localStorage.getItem('bookmarkList') && !localStorage.getItem('bookmarkList').length === 2 ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
     list.forEach(function (value, index) {
       value.key = index;
     });
@@ -52,12 +41,25 @@ var App = React.createClass({
     localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
 
+  onDelUrl: function (id) {
+    var that = this;
+    this.state.bookmarkList.forEach(function (value, index, array) {
+      if (id === value.key) {
+        array.splice(index, 1)
+      }
+      that.setState({
+        bookmarkList: array
+      });
+      return localStorage.setItem('bookmarkList', JSON.stringify(array));
+    });
+  },
+
   render: function () {
 
     return (
       <div>
         <Searcher/>
-        <Bookmark bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl}/>
+        <Bookmark bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
       </div>
     )

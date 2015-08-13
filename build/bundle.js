@@ -86,7 +86,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
+	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n  min-height: 45px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
 
 	// exports
 
@@ -20776,18 +20776,7 @@
 	  },
 
 	  getInitialState: function () {
-	    //var i = 0;
-	    //var data = {
-	    //  name: Math.random(),
-	    //  url: Math.random()
-	    //};
-	    //var list = [];
-	    //for (var j = 0; j < 200; j++) {
-	    //  data.key = j;
-	    //  list.push(JSON.parse(JSON.stringify(data)));
-	    //}
-	    //console.log(list);
-	    var list = JSON.parse(localStorage.getItem('bookmarkList') ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
+	    var list = JSON.parse(localStorage.getItem('bookmarkList') && !localStorage.getItem('bookmarkList').length === 2 ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
 	    list.forEach(function (value, index) {
 	      value.key = index;
 	    });
@@ -20805,12 +20794,25 @@
 	    localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
 
+	  onDelUrl: function (id) {
+	    var that = this;
+	    this.state.bookmarkList.forEach(function (value, index, array) {
+	      if (id === value.key) {
+	        array.splice(index, 1)
+	      }
+	      that.setState({
+	        bookmarkList: array
+	      });
+	      return localStorage.setItem('bookmarkList', JSON.stringify(array));
+	    });
+	  },
+
 	  render: function () {
 
 	    return (
 	      React.createElement("div", null, 
 	        React.createElement(Searcher, null), 
-	        React.createElement(Bookmark, {bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl}), 
+	        React.createElement(Bookmark, {bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl}), 
 	        React.createElement("img", {className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop})
 	      )
 	    )
@@ -21008,6 +21010,7 @@
 
 	  render: function () {
 	    var bookmarkList = this.props.bookmarkList;
+	    var that = this;
 	    return (
 	      React.createElement("div", {className: "bookmarksbox"}, 
 	        React.createElement("div", {className: "bookmarksbox-header"}, 
@@ -21023,7 +21026,7 @@
 	        ), 
 	        React.createElement("ul", {className: "bookmarksbox-body"}, 
 	           bookmarkList.map(function (result) {
-	            return React.createElement(BookmarkItem, {key: result.key, url: result.url, name: result.name});
+	            return React.createElement(BookmarkItem, {key: result.key, url: result.url, name: result.name, id: result.key, onDelUrl: that.props.onDelUrl});
 	          })
 	        )
 	      )
@@ -23202,12 +23205,20 @@
 
 	var React = __webpack_require__(5);
 	var BookmarkItem = React.createClass({displayName: "BookmarkItem",
+	  del: function () {
+	    //console.log(this.props.id);
+	    //this.props.onDelUrl(this.props.id);
+	    //console.log(this.props.onDelUrl);
+	    this.props.onDelUrl(this.props.id);
+	  },
+
 	  render: function () {
 	    return (
-	      React.createElement("li", {className: "c bookmarksbox-body-item"}, 
+	      React.createElement("li", {className: "bookmarksbox-body-item"}, 
 	        React.createElement("a", {href: this.props.url, target: "_blank"}, 
 	          React.createElement("span", null, this.props.name)
-	        )
+	        ), 
+	        React.createElement("i", {className: "fa fa-close del", onClick: this.del})
 	      )
 	    )
 	  }
@@ -23250,7 +23261,7 @@
 
 
 	// module
-	exports.push([module.id, ".bookmarksbox-body-item {\n}\n\n\n", ""]);
+	exports.push([module.id, ".bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  right: 15px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: block;\n}\n\n\n", ""]);
 
 	// exports
 

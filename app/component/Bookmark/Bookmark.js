@@ -36,6 +36,7 @@ var Bookmark = React.createClass({
 
   render: function () {
     var bookmarkList = this.props.bookmarkList;
+    var that = this;
     return (
       <div className="bookmarksbox">
         <div className="bookmarksbox-header">
@@ -51,7 +52,7 @@ var Bookmark = React.createClass({
         </div>
         <ul className="bookmarksbox-body">
           { bookmarkList.map(function (result) {
-            return <BookmarkItem key={result.key} url={result.url} name={result.name} />;
+            return <BookmarkItem key={result.key} url={result.url} name={result.name} id={result.key} onDelUrl={that.props.onDelUrl}/>;
           }) }
         </ul>
       </div>

@@ -95,6 +95,7 @@ a:visited {
   list-style: none;
   overflow: hidden;
   padding: 5px;
+  min-height: 45px;
 }
 
 .bookmarksbox-body-item {

@@ -1,4 +1,18 @@
 .bookmarksbox-body-item {
+  position: relative;
+}
+
+.del {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  color: #ccc;
+}
+
+.bookmarksbox-body-item:hover .del {
+  display: block;
 }
 
 
