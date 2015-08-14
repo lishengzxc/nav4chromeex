@@ -44,8 +44,8 @@ var Bookmark = React.createClass({
         </div>
         <div className="addurlbox" ref='addurlbox' onSubmit={this.addUrl}>
           <form ref='addform'>
-            <input type="text" placeholder='Google' valueLink={this.linkState('name')}/>
-            <input type="url" placeholder="https://www.google.com" valueLink={this.linkState('url')}/>
+            <input type="text" placeholder='NAME' valueLink={this.linkState('name')}/>
+            <input type="url" placeholder="URL" valueLink={this.linkState('url')}/>
             <button type="submit"><i className="fa fa-check"></i></button>
             <button type="reset" onClick={this.hideAddUrlBox}><i className="fa fa-close"></i></button>
           </form>

@@ -20776,7 +20776,8 @@
 	  },
 
 	  getInitialState: function () {
-	    var list = JSON.parse(localStorage.getItem('bookmarkList') && !localStorage.getItem('bookmarkList').length === 2 ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
+	    // TODO: 删除的BUG待修复
+	    var list = JSON.parse(localStorage.getItem('bookmarkList') ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
 	    list.forEach(function (value, index) {
 	      value.key = index;
 	    });
@@ -21018,8 +21019,8 @@
 	        ), 
 	        React.createElement("div", {className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl}, 
 	          React.createElement("form", {ref: "addform"}, 
-	            React.createElement("input", {type: "text", placeholder: "Google", valueLink: this.linkState('name')}), 
-	            React.createElement("input", {type: "url", placeholder: "https://www.google.com", valueLink: this.linkState('url')}), 
+	            React.createElement("input", {type: "text", placeholder: "NAME", valueLink: this.linkState('name')}), 
+	            React.createElement("input", {type: "url", placeholder: "URL", valueLink: this.linkState('url')}), 
 	            React.createElement("button", {type: "submit"}, React.createElement("i", {className: "fa fa-check"})), 
 	            React.createElement("button", {type: "reset", onClick: this.hideAddUrlBox}, React.createElement("i", {className: "fa fa-close"}))
 	          )
