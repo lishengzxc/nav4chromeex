@@ -18560,8 +18560,17 @@
 	    localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
 
+	  time: '',
+
 	  onDelUrl: function onDelUrl(id) {
-	    var timeout;
+
+	    var _timeout = (function () {
+	      clearTimeout(this.time);
+	      this.time = setTimeout((function () {
+	        this.refs.toast.hideToast();
+	      }).bind(this), 2000);
+	    }).bind(this);
+
 	    var list = this.state.bookmarkList.filter(function (value) {
 	      return value.key != id;
 	    });
@@ -18577,10 +18586,7 @@
 	    });
 	    this.refs.toast.showToast();
 
-	    clearTimeout(timeout);
-	    timeout = setTimeout((function () {
-	      return this.refs.toast.hideToast();
-	    }).bind(this), 2000);
+	    _timeout();
 
 	    return localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },

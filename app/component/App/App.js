@@ -43,8 +43,17 @@ var App = React.createClass({
     localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
 
+  time: '',
+
   onDelUrl: function (id) {
-    var timeout;
+
+    const _timeout = () => {
+      clearTimeout(this.time);
+      this.time = setTimeout(() => {
+        this.refs.toast.hideToast()
+      }, 2000);
+    };
+
     var list = this.state.bookmarkList.filter((value) => value.key != id);
     var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
 
@@ -56,11 +65,12 @@ var App = React.createClass({
     });
     this.refs.toast.showToast();
 
-    clearTimeout(timeout);
-    timeout = setTimeout(() => this.refs.toast.hideToast(), 2000);
+    _timeout();
 
     return localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
+
+
 
 
 
