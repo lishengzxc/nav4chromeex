@@ -57,24 +57,19 @@ var App = React.createClass({
   },
 
   onDelUrl: function (id) {
-    console.log(1);
-    //var list = this.state.bookmarkList.filter((value) => value.key != id);
-    //var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
-    //
-    //this.setState({
-    //  bookmarkList: list,
-    //  content: name + ' 已被删除'
-    //});
-    //
-    //this.refs.toast.showToast();
-    //this._timeout();
-    //
-    //return localStorage.setItem('bookmarkList', JSON.stringify(list));
+    var list = this.state.bookmarkList.filter((value) => value.key != id);
+    var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
+
+    this.setState({
+      bookmarkList: list,
+      content: name + ' 已被删除'
+    });
+
+    this.refs.toast.showToast();
+    this._timeout();
+
+    return localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
-
-
-
-
 
   render: function () {
 

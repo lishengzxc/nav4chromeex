@@ -17,20 +17,33 @@
   box-sizing: border-box;
 }
 
+.addurlbox input:last-of-type {
+  border-right: 1px solid #d8d8d8;
+}
+
 .addurlbox form {
   display: flex;
+  align-items: center;
 }
 
 .addurlbox button {
   border: none;
   outline: none;
-  width: 65px;
+  width: 44px;
+  height: 29px;
   color: #fff;
   cursor: pointer;
+  margin-left: 5px;
+  border-radius: 2px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 
 .addurlbox button:first-of-type {
   background-color: #38f;
+}
+
+.addurlbox button:last-of-type {
+  margin: 0 5px;
 }
 
 

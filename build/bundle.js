@@ -18573,19 +18573,22 @@
 	  },
 
 	  onDelUrl: function onDelUrl(id) {
-	    console.log(1);
-	    //var list = this.state.bookmarkList.filter((value) => value.key != id);
-	    //var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
-	    //
-	    //this.setState({
-	    //  bookmarkList: list,
-	    //  content: name + ' 已被删除'
-	    //});
-	    //
-	    //this.refs.toast.showToast();
-	    //this._timeout();
-	    //
-	    //return localStorage.setItem('bookmarkList', JSON.stringify(list));
+	    var list = this.state.bookmarkList.filter(function (value) {
+	      return value.key != id;
+	    });
+	    var name = this.state.bookmarkList.filter(function (value) {
+	      return value.key === id;
+	    })[0].name;
+
+	    this.setState({
+	      bookmarkList: list,
+	      content: name + ' 已被删除'
+	    });
+
+	    this.refs.toast.showToast();
+	    this._timeout();
+
+	    return localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
 
 	  render: function render() {
@@ -18817,7 +18820,7 @@
 
 
 	// module
-	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox form {\n  display: flex;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 65px;\n  color: #fff;\n  cursor: pointer;\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}", ""]);
+	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-items: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}", ""]);
 
 	// exports
 
@@ -20727,15 +20730,35 @@
 	__webpack_require__(189);
 
 	var React = __webpack_require__(5);
-	var Confirm = __webpack_require__(194);
 
 	var BookmarkItem = React.createClass({ displayName: "BookmarkItem",
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      visible: false
+	    };
+	  },
+
 	  del: function del() {
 	    this.props.onDelUrl(this.props.id);
 	  },
 
+	  showConfirm: function showConfirm() {
+	    this.setState({
+	      visible: true
+	    });
+	  },
+
+	  hideConfirm: function hideConfirm() {
+	    this.setState({
+	      visible: false
+	    });
+	  },
+
 	  render: function render() {
-	    return React.createElement("li", { className: "bookmarksbox-body-item" }, React.createElement("a", { href: this.props.url, target: "_blank" }, React.createElement("span", null, this.props.name)), React.createElement("i", { className: "fa fa-close del", onClick: this.del }), React.createElement(Confirm, null));
+	    return React.createElement("li", { className: "bookmarksbox-body-item" }, React.createElement("a", { href: this.props.url, target: "_blank" }, React.createElement("span", null, this.props.name)), React.createElement("i", { className: "fa fa-close del", onClick: this.showConfirm }), React.createElement("div", { className: "confirm", style: {
+	        'display': this.state.visible ? 'flex' : 'none'
+	      } }, React.createElement("span", null, "Delete it？"), React.createElement("button", { className: "ok", onClick: this.del }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { className: "cancel", onClick: this.hideConfirm }, React.createElement("i", { className: "fa fa-close" }))));
 	  }
 	});
 
@@ -20776,7 +20799,7 @@
 
 
 	// module
-	exports.push([module.id, ".bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 10px;\n  align-items: center;\n  justify-content: center;\n  width: 25px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: flex;\n}\n\n\n", ""]);
+	exports.push([module.id, ".bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 10px;\n  align-items: center;\n  justify-content: center;\n  width: 25px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: flex;\n}\n\n.confirm {\n  position: absolute;\n  display: flex;\n  padding: 0 10px;\n  align-items: center;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0 ,0, 0, .3);\n  color: #fff;\n}\n\n.confirm span {\n  padding: 5px;\n  height: 19px;\n  background-color: gray;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.confirm button {\n  margin-left: 5px;\n  flex-grow: 1;\n  height: 29px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border: none;\n  outline: none;\n  border-radius: 2px;\n  color: #fff;\n  background-color: rgb(192, 192, 192);\n}\n\n.confirm button:first-of-type {\n  background-color: rgb(216, 89, 89);\n}\n\n\n\n", ""]);
 
 	// exports
 
@@ -20855,64 +20878,6 @@
 
 	// module
 	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}", ""]);
-
-	// exports
-
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 专属BookmarkItem
-	'use strict';
-
-	__webpack_require__(195);
-	var React = __webpack_require__(5);
-
-	var Confirm = React.createClass({ displayName: "Confirm",
-	  render: function render() {
-	    return React.createElement("div", { className: "confirm" }, React.createElement("span", null, "Delete it？"), React.createElement("button", { className: "" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", null, React.createElement("i", { className: "fa fa-close" })));
-	  }
-	});
-
-	module.exports = Confirm;
-
-/***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(196);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Confirm.css", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Confirm.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".confirm {\n  position: absolute;\n  display: flex;\n  padding: 0 10px;\n  align-items: center;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0 ,0, 0, .3);\n  color: #fff;\n}\n\n.confirm span {\n  padding: 5px;\n  height: 19px;\n  background-color: gray;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.confirm button {\n  margin-left: 5px;\n  flex-grow: 1;\n  height: 29px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border: none;\n  outline: none;\n  border-radius: 2px;\n  color: #fff;\n}\n\n.confirm button:first-of-type {\n  background-color: rgba(255, 0, 0, .5);\n}\n", ""]);
 
 	// exports
 
