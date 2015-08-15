@@ -5,14 +5,17 @@
 .del {
   display: none;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 15px;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
   color: #ccc;
 }
 
 .bookmarksbox-body-item:hover .del {
-  display: block;
+  display: flex;
 }
 
 

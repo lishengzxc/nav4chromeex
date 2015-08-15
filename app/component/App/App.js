@@ -38,34 +38,36 @@ var App = React.createClass({
     newUrl.key = this.state.bookmarkList.length;
     var list = this.state.bookmarkList.concat(newUrl);
     this.setState({
-      bookmarkList: list
+      bookmarkList: list,
+      content: newUrl.name + ' 已添加'
     });
+    this.refs.toast.showToast();
+    this._timeout();
+
     localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
 
+
   time: '',
+  _timeout: function () {
+    clearTimeout(this.time);
+    this.time = setTimeout(() => {
+      this.refs['toast'].hideToast();
+    }, 2000);
+  },
 
   onDelUrl: function (id) {
-
-    const _timeout = () => {
-      clearTimeout(this.time);
-      this.time = setTimeout(() => {
-        this.refs.toast.hideToast()
-      }, 2000);
-    };
 
     var list = this.state.bookmarkList.filter((value) => value.key != id);
     var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
 
     this.setState({
-      bookmarkList: list
-    });
-    this.setState({
+      bookmarkList: list,
       content: name + ' 已被删除'
     });
-    this.refs.toast.showToast();
 
-    _timeout();
+    this.refs.toast.showToast();
+    this._timeout();
 
     return localStorage.setItem('bookmarkList', JSON.stringify(list));
   },

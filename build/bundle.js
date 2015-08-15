@@ -18555,21 +18555,24 @@
 	    newUrl.key = this.state.bookmarkList.length;
 	    var list = this.state.bookmarkList.concat(newUrl);
 	    this.setState({
-	      bookmarkList: list
+	      bookmarkList: list,
+	      content: newUrl.name + ' 已添加'
 	    });
+	    this.refs.toast.showToast();
+	    this._timeout();
+
 	    localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
 
 	  time: '',
+	  _timeout: function _timeout() {
+	    clearTimeout(this.time);
+	    this.time = setTimeout((function () {
+	      this.refs['toast'].hideToast();
+	    }).bind(this), 2000);
+	  },
 
 	  onDelUrl: function onDelUrl(id) {
-
-	    var _timeout = (function () {
-	      clearTimeout(this.time);
-	      this.time = setTimeout((function () {
-	        this.refs.toast.hideToast();
-	      }).bind(this), 2000);
-	    }).bind(this);
 
 	    var list = this.state.bookmarkList.filter(function (value) {
 	      return value.key != id;
@@ -18579,14 +18582,12 @@
 	    })[0].name;
 
 	    this.setState({
-	      bookmarkList: list
-	    });
-	    this.setState({
+	      bookmarkList: list,
 	      content: name + ' 已被删除'
 	    });
-	    this.refs.toast.showToast();
 
-	    _timeout();
+	    this.refs.toast.showToast();
+	    this._timeout();
 
 	    return localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
@@ -18777,7 +18778,7 @@
 	  render: function render() {
 	    var bookmarkList = this.props.bookmarkList;
 	    var that = this;
-	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", placeholder: "NAME", valueLink: this.linkState('name') }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url') }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, bookmarkList.map(function (result) {
+	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, bookmarkList.map(function (result) {
 	      return React.createElement(BookmarkItem, { key: result.key, url: result.url, name: result.name, id: result.key, onDelUrl: that.props.onDelUrl });
 	    })));
 	  }
@@ -20780,7 +20781,7 @@
 
 
 	// module
-	exports.push([module.id, ".bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  right: 15px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: block;\n}\n\n\n", ""]);
+	exports.push([module.id, ".bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 10px;\n  align-items: center;\n  justify-content: center;\n  width: 25px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: flex;\n}\n\n\n", ""]);
 
 	// exports
 
