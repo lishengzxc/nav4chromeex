@@ -6,12 +6,15 @@ module.exports = {
   },
   module: {
     loaders: [{
+      test: /\.js$/,
+      loader: 'babel-loader'
+    }, {
       test: /\.(js)$/,
       loader: 'jsx-loader?harmony'
-    },{
+    }, {
       test: /\.(css)$/,
       loader: 'style-loader!css-loader'
-    },{
+    }, {
       test: /\.(png|jpg|gif)$/,
       loader: 'url-loader?size=8192'
     }]

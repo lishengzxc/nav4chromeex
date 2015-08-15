@@ -2,6 +2,7 @@ require('./App.css');
 var React = require('react');
 var Searcher = require('../Searcher/Searcher');
 var Bookmark = require('../Bookmark/Bookmark');
+var Toast = require('../Toast/Toast');
 
 var App = React.createClass({
 
@@ -43,17 +44,25 @@ var App = React.createClass({
   },
 
   onDelUrl: function (id) {
-    var that = this;
-    this.state.bookmarkList.forEach(function (value, index, array) {
-      if (id === value.key) {
-        array.splice(index, 1)
-      }
-      that.setState({
-        bookmarkList: array
-      });
-      return localStorage.setItem('bookmarkList', JSON.stringify(array));
+    var timeout;
+    var list = this.state.bookmarkList.filter((value) => value.key != id);
+    var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
+
+    this.setState({
+      bookmarkList: list
     });
+    this.setState({
+      content: name + ' 已被删除'
+    });
+    this.refs.toast.showToast();
+
+    clearTimeout(timeout);
+    timeout = setTimeout(() => this.refs.toast.hideToast(), 2000);
+
+    return localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
+
+
 
   render: function () {
 
@@ -62,6 +71,7 @@ var App = React.createClass({
         <Searcher/>
         <Bookmark bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
+        <Toast ref="toast" toastContent={this.state.content}/>
       </div>
     )
   }
