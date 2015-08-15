@@ -88,7 +88,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  font: 62.5% \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n}\n\nbody {\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n  min-height: 45px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
+	exports.push([module.id, "html {\n  font-size: 62.5%;\n}\n\nbody {\n  font-family: \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n  min-height: 45px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
 
 	// exports
 
@@ -18573,23 +18573,19 @@
 	  },
 
 	  onDelUrl: function onDelUrl(id) {
-
-	    var list = this.state.bookmarkList.filter(function (value) {
-	      return value.key != id;
-	    });
-	    var name = this.state.bookmarkList.filter(function (value) {
-	      return value.key === id;
-	    })[0].name;
-
-	    this.setState({
-	      bookmarkList: list,
-	      content: name + ' 已被删除'
-	    });
-
-	    this.refs.toast.showToast();
-	    this._timeout();
-
-	    return localStorage.setItem('bookmarkList', JSON.stringify(list));
+	    console.log(1);
+	    //var list = this.state.bookmarkList.filter((value) => value.key != id);
+	    //var name = this.state.bookmarkList.filter((value) => value.key === id)[0].name;
+	    //
+	    //this.setState({
+	    //  bookmarkList: list,
+	    //  content: name + ' 已被删除'
+	    //});
+	    //
+	    //this.refs.toast.showToast();
+	    //this._timeout();
+	    //
+	    //return localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
 
 	  render: function render() {
@@ -20731,16 +20727,15 @@
 	__webpack_require__(189);
 
 	var React = __webpack_require__(5);
+	var Confirm = __webpack_require__(194);
+
 	var BookmarkItem = React.createClass({ displayName: "BookmarkItem",
 	  del: function del() {
-	    //console.log(this.props.id);
-	    //this.props.onDelUrl(this.props.id);
-	    //console.log(this.props.onDelUrl);
 	    this.props.onDelUrl(this.props.id);
 	  },
 
 	  render: function render() {
-	    return React.createElement("li", { className: "bookmarksbox-body-item" }, React.createElement("a", { href: this.props.url, target: "_blank" }, React.createElement("span", null, this.props.name)), React.createElement("i", { className: "fa fa-close del", onClick: this.del }));
+	    return React.createElement("li", { className: "bookmarksbox-body-item" }, React.createElement("a", { href: this.props.url, target: "_blank" }, React.createElement("span", null, this.props.name)), React.createElement("i", { className: "fa fa-close del", onClick: this.del }), React.createElement(Confirm, null));
 	  }
 	});
 
@@ -20859,7 +20854,65 @@
 
 
 	// module
-	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}", ""]);
+	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 专属BookmarkItem
+	'use strict';
+
+	__webpack_require__(195);
+	var React = __webpack_require__(5);
+
+	var Confirm = React.createClass({ displayName: "Confirm",
+	  render: function render() {
+	    return React.createElement("div", { className: "confirm" }, React.createElement("span", null, "Delete it？"), React.createElement("button", { className: "" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", null, React.createElement("i", { className: "fa fa-close" })));
+	  }
+	});
+
+	module.exports = Confirm;
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(196);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Confirm.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Confirm.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".confirm {\n  position: absolute;\n  display: flex;\n  padding: 0 10px;\n  align-items: center;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0 ,0, 0, .3);\n  color: #fff;\n}\n\n.confirm span {\n  padding: 5px;\n  height: 19px;\n  background-color: gray;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.confirm button {\n  margin-left: 5px;\n  flex-grow: 1;\n  height: 29px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border: none;\n  outline: none;\n  border-radius: 2px;\n  color: #fff;\n}\n\n.confirm button:first-of-type {\n  background-color: rgba(255, 0, 0, .5);\n}\n", ""]);
 
 	// exports
 

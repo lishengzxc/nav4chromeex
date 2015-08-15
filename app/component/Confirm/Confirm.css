@@ -1,0 +1,35 @@
+.confirm {
+  position: absolute;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0 ,0, 0, .3);
+  color: #fff;
+}
+
+.confirm span {
+  padding: 5px;
+  height: 19px;
+  background-color: gray;
+  border-radius: 2px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+.confirm button {
+  margin-left: 5px;
+  flex-grow: 1;
+  height: 29px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.confirm button:first-of-type {
+  background-color: rgba(255, 0, 0, .5);
+}

@@ -1,13 +1,14 @@
 require('./BookmarkItem.css');
 
 var React = require('react');
+var Confirm = require('../Confirm/Confirm');
+
 var BookmarkItem = React.createClass({
   del: function () {
-    //console.log(this.props.id);
-    //this.props.onDelUrl(this.props.id);
-    //console.log(this.props.onDelUrl);
     this.props.onDelUrl(this.props.id);
   },
+
+
 
   render: function () {
     return (
@@ -16,9 +17,11 @@ var BookmarkItem = React.createClass({
           <span>{this.props.name}</span>
         </a>
         <i className="fa fa-close del" onClick={this.del}></i>
+        <Confirm/>
       </li>
     )
   }
 });
+
 
 module.exports = BookmarkItem;
