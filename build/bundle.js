@@ -20824,21 +20824,19 @@
 	  },
 
 	  showToast: function showToast() {
-	    this.setState({
-	      visible: true
-	    });
+	    this.refs['toast'].getDOMNode().style.display = 'block';
+	    this.refs['toast'].getDOMNode().classList.add('active');
 	  },
 
 	  hideToast: function hideToast() {
-	    this.setState({
-	      visible: false
-	    });
+	    this.refs['toast'].getDOMNode().classList.remove('active');
+	    setTimeout((function () {
+	      return this.refs['toast'].getDOMNode().style.display = 'none';
+	    }).bind(this), 100);
 	  },
 
 	  render: function render() {
-	    return React.createElement("div", { className: "toast", style: {
-	        'display': this.state.visible ? 'block' : 'none'
-	      } }, React.createElement("p", null, this.props.toastContent));
+	    return React.createElement("div", { ref: "toast", className: "toast" }, React.createElement("p", null, this.props.toastContent));
 	  }
 	});
 
@@ -20879,7 +20877,7 @@
 
 
 	// module
-	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}\n\n.toast-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.toast-animation-enter.toast-animation-enter-active {\n  opacity: 1;\n}\n\n.toast-animation-leave {\n  opacity: 1;\n  transition: opacity .5s ease-in;\n}\n\n.toast-animation-leave.toast-animation-leave-active {\n  opacity: 0.01;\n}", ""]);
+	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n  transition: opacity .1s ease-in;\n  opacity: 0.01;\n}\n\n.toast.active {\n  opacity: 1;\n}", ""]);
 
 	// exports
 
