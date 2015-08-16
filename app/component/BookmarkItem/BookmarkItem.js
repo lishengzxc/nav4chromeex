@@ -10,6 +10,7 @@ var BookmarkItem = React.createClass({
 
   del: function () {
     this.props.onDelUrl(this.props.id);
+    this.hideConfirm();
   },
 
   showConfirm: function () {

@@ -24,8 +24,8 @@ var Toast = React.createClass({
   render: function () {
     return (
       <div className='toast' style={{
-         'display': this.state.visible ? 'block' : 'none'
-        }}>
+        'display': this.state.visible ? 'block' : 'none'
+      }}>
         <p>{this.props.toastContent}</p>
       </div>
     )

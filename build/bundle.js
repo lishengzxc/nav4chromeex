@@ -18744,6 +18744,7 @@
 
 	var React = __webpack_require__(170);
 	var BookmarkItem = __webpack_require__(188);
+	var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 	var Bookmark = React.createClass({ displayName: "Bookmark",
 	  mixins: [React.addons.LinkedStateMixin],
@@ -18777,9 +18778,9 @@
 	  render: function render() {
 	    var bookmarkList = this.props.bookmarkList;
 	    var that = this;
-	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, bookmarkList.map(function (result) {
+	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, React.createElement(ReactCSSTransitionGroup, { transitionName: "item-animation" }, bookmarkList.map(function (result) {
 	      return React.createElement(BookmarkItem, { key: result.key, url: result.url, name: result.name, id: result.key, onDelUrl: that.props.onDelUrl });
-	    })));
+	    }))));
 	  }
 	});
 
@@ -18820,7 +18821,7 @@
 
 
 	// module
-	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-items: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}", ""]);
+	exports.push([module.id, ".addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-item: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-item: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}\n\n.item-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.item-animation-enter.item-animation-enter-active {\n  opacity: 1;\n}\n\n.item-animation-leave {\n  opacity: 1;\n  transition: opacity .5s ease-in;\n}\n\n.item-animation-leave.item-animation-leave-active {\n  opacity: 0.01;\n}", ""]);
 
 	// exports
 
@@ -20741,6 +20742,7 @@
 
 	  del: function del() {
 	    this.props.onDelUrl(this.props.id);
+	    this.hideConfirm();
 	  },
 
 	  showConfirm: function showConfirm() {
@@ -20799,7 +20801,7 @@
 
 
 	// module
-	exports.push([module.id, ".bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 10px;\n  align-items: center;\n  justify-content: center;\n  width: 25px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: flex;\n}\n\n.confirm {\n  position: absolute;\n  display: flex;\n  padding: 0 10px;\n  align-items: center;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0 ,0, 0, .3);\n  color: #fff;\n}\n\n.confirm span {\n  padding: 5px;\n  height: 19px;\n  background-color: gray;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.confirm button {\n  margin-left: 5px;\n  flex-grow: 1;\n  height: 29px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border: none;\n  outline: none;\n  border-radius: 2px;\n  color: #fff;\n  background-color: rgb(192, 192, 192);\n}\n\n.confirm button:first-of-type {\n  background-color: rgb(216, 89, 89);\n}\n\n\n\n", ""]);
+	exports.push([module.id, "@keyframes confirmShow {\n  0% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n\n@keyframes itemDrop {\n  0% {\n    background-color: aliceblue;\n  }\n  100% {\n    background-color: transparent;\n  }\n}\n\n.bookmarksbox-body-item {\n  position: relative;\n}\n\n.del {\n  display: none;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: 10px;\n  align-items: center;\n  justify-content: center;\n  width: 25px;\n  color: #ccc;\n}\n\n.bookmarksbox-body-item:hover .del {\n  display: flex;\n}\n\n.confirm {\n  position: absolute;\n  display: flex;\n  padding: 0 10px;\n  align-items: center;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0 ,0, 0, .3);\n  color: #fff;\n  animation: confirmShow 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28) 0s;\n}\n\n.confirm span {\n  padding: 5px;\n  height: 19px;\n  background-color: gray;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.confirm button {\n  margin-left: 5px;\n  flex-grow: 1;\n  height: 29px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border: none;\n  outline: none;\n  border-radius: 2px;\n  color: #fff;\n  background-color: rgb(192, 192, 192);\n}\n\n.confirm button:first-of-type {\n  background-color: rgb(216, 89, 89);\n}\n\n.bookmarksbox-body-item {\n}\n\n\n", ""]);
 
 	// exports
 
@@ -20877,7 +20879,7 @@
 
 
 	// module
-	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}", ""]);
+	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}\n\n.toast-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.toast-animation-enter.toast-animation-enter-active {\n  opacity: 1;\n}\n\n.toast-animation-leave {\n  opacity: 1;\n  transition: opacity .5s ease-in;\n}\n\n.toast-animation-leave.toast-animation-leave-active {\n  opacity: 0.01;\n}", ""]);
 
 	// exports
 

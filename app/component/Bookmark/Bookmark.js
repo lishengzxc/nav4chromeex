@@ -2,13 +2,12 @@ require('./Bookmark.css');
 
 var React = require('react/addons');
 var BookmarkItem = require('../BookmarkItem/BookmarkItem');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var Bookmark = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
-    return {
-
-    }
+    return {}
   },
 
   showAddUrlBox: function () {
@@ -40,20 +39,28 @@ var Bookmark = React.createClass({
     return (
       <div className="bookmarksbox">
         <div className="bookmarksbox-header">
-          <button className="addurlbutton" onClick={this.showAddUrlBox}><i className="fa fa-plus"></i></button>
+          <button className="addurlbutton" onClick={this.showAddUrlBox}>
+            <i className="fa fa-plus"></i>
+          </button>
         </div>
         <div className="addurlbox" ref='addurlbox' onSubmit={this.addUrl}>
           <form ref='addform'>
             <input type="text" placeholder='NAME' valueLink={this.linkState('name')} required/>
             <input type="url" placeholder="URL" valueLink={this.linkState('url')} required/>
-            <button type="submit"><i className="fa fa-check"></i></button>
-            <button type="reset" onClick={this.hideAddUrlBox}><i className="fa fa-close"></i></button>
+            <button type="submit">
+              <i className="fa fa-check"></i>
+            </button>
+            <button type="reset" onClick={this.hideAddUrlBox}>
+              <i className="fa fa-close"></i>
+            </button>
           </form>
         </div>
         <ul className="bookmarksbox-body">
+          <ReactCSSTransitionGroup transitionName="item-animation">
           { bookmarkList.map(function (result) {
             return <BookmarkItem key={result.key} url={result.url} name={result.name} id={result.key} onDelUrl={that.props.onDelUrl}/>;
           }) }
+          </ReactCSSTransitionGroup>
         </ul>
       </div>
     )

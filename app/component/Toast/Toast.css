@@ -9,3 +9,21 @@
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   border-radius: 2px;
 }
+
+.toast-animation-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.toast-animation-enter.toast-animation-enter-active {
+  opacity: 1;
+}
+
+.toast-animation-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.toast-animation-leave.toast-animation-leave-active {
+  opacity: 0.01;
+}

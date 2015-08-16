@@ -3,7 +3,7 @@
   overflow: hidden;
   transition: height 300ms;
   display: flex;
-  align-items: center;
+  align-item: center;
   justify-content: flex-end;
 }
 
@@ -23,7 +23,7 @@
 
 .addurlbox form {
   display: flex;
-  align-items: center;
+  align-item: center;
 }
 
 .addurlbox button {
@@ -53,4 +53,22 @@
   outline: none;
   margin-right: 5px;
   cursor: pointer;
+}
+
+.item-animation-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.item-animation-enter.item-animation-enter-active {
+  opacity: 1;
+}
+
+.item-animation-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.item-animation-leave.item-animation-leave-active {
+  opacity: 0.01;
 }
