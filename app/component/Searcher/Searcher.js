@@ -12,7 +12,7 @@ var Searcher = React.createClass({
   },
 
   componentDidMount: function () {
-    var searcherinput = this.refs['searcherinput'].getDOMNode().focus();
+    this.refs['searcherinput'].getDOMNode().focus();
 
     var searcher = this.refs.searcher.getDOMNode();
 
