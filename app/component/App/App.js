@@ -41,10 +41,10 @@ var App = React.createClass({
       bookmarkList: list,
       content: newUrl.name + ' 已添加'
     });
-    this.refs.toast.showToast();
+    this.refs['toast'].showToast();
     this._timeout();
 
-    localStorage.setItem('bookmarkList', JSON.stringify(list));
+    return localStorage.setItem('bookmarkList', JSON.stringify(list));
   },
 
 
@@ -65,7 +65,7 @@ var App = React.createClass({
       content: name + ' 已被删除'
     });
 
-    this.refs.toast.showToast();
+    this.refs['toast'].showToast();
     this._timeout();
 
     return localStorage.setItem('bookmarkList', JSON.stringify(list));

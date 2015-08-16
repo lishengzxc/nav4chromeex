@@ -18558,10 +18558,10 @@
 	      bookmarkList: list,
 	      content: newUrl.name + ' 已添加'
 	    });
-	    this.refs.toast.showToast();
+	    this.refs['toast'].showToast();
 	    this._timeout();
 
-	    localStorage.setItem('bookmarkList', JSON.stringify(list));
+	    return localStorage.setItem('bookmarkList', JSON.stringify(list));
 	  },
 
 	  time: '',
@@ -18585,7 +18585,7 @@
 	      content: name + ' 已被删除'
 	    });
 
-	    this.refs.toast.showToast();
+	    this.refs['toast'].showToast();
 	    this._timeout();
 
 	    return localStorage.setItem('bookmarkList', JSON.stringify(list));
@@ -18659,7 +18659,7 @@
 	  },
 
 	  componentDidMount: function componentDidMount() {
-	    var searcherinput = this.refs['searcherinput'].getDOMNode().focus();
+	    this.refs['searcherinput'].getDOMNode().focus();
 
 	    var searcher = this.refs.searcher.getDOMNode();
 
@@ -18823,7 +18823,7 @@
 
 
 	// module
-	exports.push([module.id, "@keyframes bookmarkShow {\n  0% {\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-items: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}\n\n.item-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.item-animation-enter.item-animation-enter-active {\n  opacity: 1;\n}\n\n.item-animation-leave {\n  opacity: 1;\n  transition: opacity .5s ease-in;\n}\n\n.item-animation-leave.item-animation-leave-active {\n  opacity: 0.01;\n}\n\n.bookmarksbox {\n  animation: bookmarkShow 400ms ease-out 300ms forwards;\n}", ""]);
+	exports.push([module.id, "@keyframes bookmarkShow {\n  0% {\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-items: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}\n\n.item-animation-enter {\n  opacity: 0.01;\n  transition: opacity .7s ease-in;\n}\n\n.item-animation-enter.item-animation-enter-active {\n  opacity: 1;\n}\n\n.item-animation-leave {\n  opacity: 1;\n  transition: opacity .7s ease-in;\n}\n\n.item-animation-leave.item-animation-leave-active {\n  opacity: 0.01;\n}\n\n.bookmarksbox {\n  animation: bookmarkShow 400ms ease-out 300ms forwards;\n}", ""]);
 
 	// exports
 
@@ -20826,19 +20826,30 @@
 	  },
 
 	  showToast: function showToast() {
-	    this.refs['toast'].getDOMNode().style.display = 'block';
-	    this.refs['toast'].getDOMNode().classList.add('active');
+	    var toast = this.refs['toast'].getDOMNode();
+
+	    toast.classList.remove('hide');
+	    toast.classList.add('show');
+	    toast.classList.add('enter');
+
+	    setTimeout(function () {
+	      return toast.classList.remove('enter');
+	    }, 200);
 	  },
 
 	  hideToast: function hideToast() {
-	    this.refs['toast'].getDOMNode().classList.remove('active');
-	    setTimeout((function () {
-	      return this.refs['toast'].getDOMNode().style.display = 'none';
-	    }).bind(this), 100);
+	    var toast = this.refs['toast'].getDOMNode();
+
+	    toast.classList.add('leave');
+	    setTimeout(function () {
+	      toast.classList.remove('show');
+	      toast.classList.remove('leave');
+	      toast.classList.add('hide');
+	    }, 200);
 	  },
 
 	  render: function render() {
-	    return React.createElement("div", { ref: "toast", className: "toast" }, React.createElement("p", null, this.props.toastContent));
+	    return React.createElement("div", { ref: "toast", className: "toast hide" }, React.createElement("p", null, this.props.toastContent));
 	  }
 	});
 
@@ -20879,7 +20890,7 @@
 
 
 	// module
-	exports.push([module.id, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n  transition: opacity .1s ease-in;\n  opacity: 0.01;\n}\n\n.toast.active {\n  opacity: 1;\n}", ""]);
+	exports.push([module.id, "@keyframes toastShow {\n  0% {\n    opacity: 0.01;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n@keyframes toastHide {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0.01;\n  }\n}\n\n.toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}\n\n.toast.show {\n  display: block;\n}\n\n.toast.hide {\n  display: none;\n}\n\n.toast.enter {\n  animation: toastShow 200ms linear 0s;\n}\n\n.toast.leave {\n  animation: toastHide 200ms linear 0s forwards;\n}", ""]);
 
 	// exports
 

@@ -1,3 +1,21 @@
+@keyframes toastShow {
+  0% {
+    opacity: 0.01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toastHide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.01;
+  }
+}
+
 .toast {
   position: fixed;
   left: 50%;
@@ -8,10 +26,20 @@
   color: #fff;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
   border-radius: 2px;
-  transition: opacity .1s ease-in;
-  opacity: 0.01;
 }
 
-.toast.active {
-  opacity: 1;
+.toast.show {
+  display: block;
+}
+
+.toast.hide {
+  display: none;
+}
+
+.toast.enter {
+  animation: toastShow 200ms linear 0s;
+}
+
+.toast.leave {
+  animation: toastHide 200ms linear 0s forwards;
 }
