@@ -81,6 +81,8 @@ a:visited {
   border: 1px solid #ebebeb;
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  opacity: 0.01;
+  transform: translateY(-20px);
 }
 
 .bookmarksbox-header {

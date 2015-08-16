@@ -1,3 +1,16 @@
+@keyframes searcherShow {
+  0% {
+    opacity: 0.01;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.nv-searcher {
+  animation: searcherShow 400ms linear 0s;
+}
+
 .searcher-fixed {
   position: fixed;
   width: 100%;
@@ -28,4 +41,6 @@ label {
 .nv-searchengines [type="radio"]:checked+label {
   color: #000;
 }
+
+
 

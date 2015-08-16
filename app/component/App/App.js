@@ -75,7 +75,9 @@ var App = React.createClass({
 
     return (
       <div>
-        <Searcher/>
+
+          <Searcher/>
+
         <Bookmark bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
         <Toast ref="toast" toastContent={this.state.content}/>

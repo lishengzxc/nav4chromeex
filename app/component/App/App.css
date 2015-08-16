@@ -5,3 +5,12 @@
 .nv-header {
   text-align: right;
 }
+
+.searcher-animation-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.searcher-animation-enter.searcher-animation-enter-active {
+  opacity: 1;
+}

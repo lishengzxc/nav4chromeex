@@ -1,3 +1,12 @@
+@keyframes bookmarkShow {
+  0% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .addurlbox {
   height: 0;
   overflow: hidden;
@@ -71,4 +80,8 @@
 
 .item-animation-leave.item-animation-leave-active {
   opacity: 0.01;
+}
+
+.bookmarksbox {
+  animation: bookmarkShow 400ms ease-out 300ms forwards;
 }

@@ -12,6 +12,8 @@ var Searcher = React.createClass({
   },
 
   componentDidMount: function () {
+    var searcherinput = this.refs['searcherinput'].getDOMNode().focus();
+
     var searcher = this.refs.searcher.getDOMNode();
 
 
@@ -47,7 +49,7 @@ var Searcher = React.createClass({
     return (
       <div className="nv-searcher" ref='searcher'>
         <form action={this.state.action} name="f">
-          <input type="text" className="nv-searcher-input" name={this.state.name} autoComplete="off"/><input type="submit" className="nv-searcher-submit" value="Search"/>
+          <input ref="searcherinput" type="text" className="nv-searcher-input" name={this.state.name} autoComplete="off" focus/><input type="submit" className="nv-searcher-submit" value="Search"/>
         </form>
         <div className="nv-searchengines">
           <input type="radio" id="baidu" name="searchengines" defaultChecked onClick={this.changeSearchEngines}/><label htmlFor="baidu">Baidu</label>
