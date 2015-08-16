@@ -18538,7 +18538,15 @@
 	    requestAnimationFrame(toTop);
 	  },
 
-	  componentDidMount: function componentDidMount() {},
+	  componentDidMount: function componentDidMount() {
+	    document.body.addEventListener('keypress', (function (event) {
+	      //event.preventDefault();
+	      if (event.shiftKey && event.which == 78) {
+	        this.refs['bookmark'].showAddUrlBox();
+	        event.preventDefault();
+	      }
+	    }).bind(this));
+	  },
 
 	  getInitialState: function getInitialState() {
 	    // TODO: 删除的BUG待修复
@@ -18556,7 +18564,7 @@
 	    var list = this.state.bookmarkList.concat(newUrl);
 	    this.setState({
 	      bookmarkList: list,
-	      content: newUrl.name + ' 已添加'
+	      content: newUrl.name + ' is added'
 	    });
 	    this.refs['toast'].showToast();
 	    this._timeout();
@@ -18582,7 +18590,7 @@
 
 	    this.setState({
 	      bookmarkList: list,
-	      content: name + ' 已被删除'
+	      content: name + ' is deleted'
 	    });
 
 	    this.refs['toast'].showToast();
@@ -18593,7 +18601,7 @@
 
 	  render: function render() {
 
-	    return React.createElement("div", null, React.createElement(Searcher, null), React.createElement(Bookmark, { bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl }), React.createElement("img", { className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop }), React.createElement(Toast, { ref: "toast", toastContent: this.state.content }));
+	    return React.createElement("div", null, React.createElement(Searcher, null), React.createElement(Bookmark, { ref: "bookmark", bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl }), React.createElement("img", { className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop }), React.createElement("p", { className: "notice" }, "Press ", React.createElement("code", null, "Shift"), " + ", React.createElement("code", null, "N"), " to Open the AddBox."), React.createElement(Toast, { ref: "toast", toastContent: this.state.content }));
 	  }
 	});
 
@@ -18634,7 +18642,7 @@
 
 
 	// module
-	exports.push([module.id, ".avatar {\n  cursor: pointer;\n}\n\n.nv-header {\n  text-align: right;\n}\n\n.searcher-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.searcher-animation-enter.searcher-animation-enter-active {\n  opacity: 1;\n}", ""]);
+	exports.push([module.id, ".avatar {\n  cursor: pointer;\n}\n\n.nv-header {\n  text-align: right;\n}\n\n.searcher-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.searcher-animation-enter.searcher-animation-enter-active {\n  opacity: 1;\n}\n\n.notice {\n  text-align: center;\n  color: #cccccc;\n}\n\n.notice code {\n  padding: 2px 5px;\n  border-radius: 2px;\n  border: 1px solid #cccccc;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}", ""]);
 
 	// exports
 
@@ -18757,6 +18765,7 @@
 	  showAddUrlBox: function showAddUrlBox() {
 	    this.refs.addurlbox.getDOMNode().style.height = '35px';
 	    this.refs.addurlbox.getDOMNode().style.borderBottom = '1px solid #ebebeb';
+	    this.refs['name'].getDOMNode().focus();
 	  },
 
 	  hideAddUrlBox: function hideAddUrlBox() {
@@ -18780,7 +18789,7 @@
 	  render: function render() {
 	    var bookmarkList = this.props.bookmarkList;
 	    var that = this;
-	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, React.createElement(ReactCSSTransitionGroup, { transitionName: "item-animation" }, bookmarkList.map(function (result) {
+	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", ref: "name", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, React.createElement(ReactCSSTransitionGroup, { transitionName: "item-animation" }, bookmarkList.map(function (result) {
 	      return React.createElement(BookmarkItem, { key: result.key, url: result.url, name: result.name, id: result.key, onDelUrl: that.props.onDelUrl });
 	    }))));
 	  }

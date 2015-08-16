@@ -20,8 +20,16 @@ var App = React.createClass({
   },
 
   componentDidMount: function () {
-
+    document.body.addEventListener('keypress', (event) => {
+      //event.preventDefault();
+      if (event.shiftKey && event.which == 78) {
+        this.refs['bookmark'].showAddUrlBox();
+        event.preventDefault();
+      }
+    });
   },
+
+
 
   getInitialState: function () {
     // TODO: 删除的BUG待修复
@@ -39,7 +47,7 @@ var App = React.createClass({
     var list = this.state.bookmarkList.concat(newUrl);
     this.setState({
       bookmarkList: list,
-      content: newUrl.name + ' 已添加'
+      content: newUrl.name + ' is added'
     });
     this.refs['toast'].showToast();
     this._timeout();
@@ -62,7 +70,7 @@ var App = React.createClass({
 
     this.setState({
       bookmarkList: list,
-      content: name + ' 已被删除'
+      content: name + ' is deleted'
     });
 
     this.refs['toast'].showToast();
@@ -75,11 +83,10 @@ var App = React.createClass({
 
     return (
       <div>
-
-          <Searcher/>
-
-        <Bookmark bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
+        <Searcher/>
+        <Bookmark ref="bookmark" bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
+        <p className="notice">Press <code>Shift</code> + <code>N</code> to Open the AddBox.</p>
         <Toast ref="toast" toastContent={this.state.content}/>
       </div>
     )

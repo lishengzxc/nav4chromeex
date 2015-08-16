@@ -14,3 +14,15 @@
 .searcher-animation-enter.searcher-animation-enter-active {
   opacity: 1;
 }
+
+.notice {
+  text-align: center;
+  color: #cccccc;
+}
+
+.notice code {
+  padding: 2px 5px;
+  border-radius: 2px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}

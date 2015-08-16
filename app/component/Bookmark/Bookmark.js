@@ -13,6 +13,7 @@ var Bookmark = React.createClass({
   showAddUrlBox: function () {
     this.refs.addurlbox.getDOMNode().style.height = '35px';
     this.refs.addurlbox.getDOMNode().style.borderBottom = '1px solid #ebebeb';
+    this.refs['name'].getDOMNode().focus();
   },
 
   hideAddUrlBox: function () {
@@ -45,7 +46,7 @@ var Bookmark = React.createClass({
         </div>
         <div className="addurlbox" ref='addurlbox' onSubmit={this.addUrl}>
           <form ref='addform'>
-            <input type="text" placeholder='NAME' valueLink={this.linkState('name')} required/>
+            <input type="text" ref="name" placeholder='NAME' valueLink={this.linkState('name')} required/>
             <input type="url" placeholder="URL" valueLink={this.linkState('url')} required/>
             <button type="submit">
               <i className="fa fa-check"></i>
