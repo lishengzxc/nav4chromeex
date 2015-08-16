@@ -3,7 +3,7 @@
   overflow: hidden;
   transition: height 300ms;
   display: flex;
-  align-item: center;
+  align-items: center;
   justify-content: flex-end;
 }
 
@@ -23,7 +23,7 @@
 
 .addurlbox form {
   display: flex;
-  align-item: center;
+  align-items: center;
 }
 
 .addurlbox button {
