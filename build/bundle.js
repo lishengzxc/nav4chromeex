@@ -18772,8 +18772,9 @@
 	  },
 
 	  hideAddUrlBox: function hideAddUrlBox() {
-	    this.refs.addurlbox.getDOMNode().style.height = '0';
-	    this.refs.addurlbox.getDOMNode().style.borderBottom = 'none';
+	    this.setState({
+	      addUrlBoxDisplay: false
+	    });
 	  },
 
 	  addUrl: function addUrl(event) {
