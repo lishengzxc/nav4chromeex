@@ -23,7 +23,7 @@ var App = React.createClass({
     document.body.addEventListener('keypress', (event) => {
       //event.preventDefault();
       if (event.shiftKey && event.which == 78) {
-        this.refs['bookmark'].showAddUrlBox();
+        this.refs['bookmark'].toggleAddUrlBox();
         event.preventDefault();
       }
     });

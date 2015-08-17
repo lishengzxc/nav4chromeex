@@ -18542,7 +18542,7 @@
 	    document.body.addEventListener('keypress', (function (event) {
 	      //event.preventDefault();
 	      if (event.shiftKey && event.which == 78) {
-	        this.refs['bookmark'].showAddUrlBox();
+	        this.refs['bookmark'].toggleAddUrlBox();
 	        event.preventDefault();
 	      }
 	    }).bind(this));
@@ -18759,13 +18759,16 @@
 	var Bookmark = React.createClass({ displayName: "Bookmark",
 	  mixins: [React.addons.LinkedStateMixin],
 	  getInitialState: function getInitialState() {
-	    return {};
+	    return {
+	      addUrlBoxDisplay: false
+	    };
 	  },
 
-	  showAddUrlBox: function showAddUrlBox() {
-	    this.refs.addurlbox.getDOMNode().style.height = '35px';
-	    this.refs.addurlbox.getDOMNode().style.borderBottom = '1px solid #ebebeb';
-	    this.refs['name'].getDOMNode().focus();
+	  toggleAddUrlBox: function toggleAddUrlBox() {
+	    if (!this.state.addUrlBoxDisplay) this.refs['name'].getDOMNode().focus();
+	    this.setState({
+	      addUrlBoxDisplay: !this.state.addUrlBoxDisplay
+	    });
 	  },
 
 	  hideAddUrlBox: function hideAddUrlBox() {
@@ -18789,7 +18792,15 @@
 	  render: function render() {
 	    var bookmarkList = this.props.bookmarkList;
 	    var that = this;
-	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.showAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: "addurlbox", ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", ref: "name", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, React.createElement(ReactCSSTransitionGroup, { transitionName: "item-animation" }, bookmarkList.map(function (result) {
+
+	    var classSet = React.addons.classSet;
+	    var addUrlBoxClasses = classSet({
+	      'addurlbox': true,
+	      'hide': !this.state.addUrlBoxDisplay,
+	      'show': this.state.addUrlBoxDisplay
+	    });
+
+	    return React.createElement("div", { className: "bookmarksbox" }, React.createElement("div", { className: "bookmarksbox-header" }, React.createElement("button", { className: "addurlbutton", onClick: this.toggleAddUrlBox }, React.createElement("i", { className: "fa fa-plus" }))), React.createElement("div", { className: addUrlBoxClasses, ref: "addurlbox", onSubmit: this.addUrl }, React.createElement("form", { ref: "addform" }, React.createElement("input", { type: "text", ref: "name", placeholder: "NAME", valueLink: this.linkState('name'), required: true }), React.createElement("input", { type: "url", placeholder: "URL", valueLink: this.linkState('url'), required: true }), React.createElement("button", { type: "submit" }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { type: "reset", onClick: this.hideAddUrlBox }, React.createElement("i", { className: "fa fa-close" })))), React.createElement("ul", { className: "bookmarksbox-body" }, React.createElement(ReactCSSTransitionGroup, { transitionName: "item-animation" }, bookmarkList.map(function (result) {
 	      return React.createElement(BookmarkItem, { key: result.key, url: result.url, name: result.name, id: result.key, onDelUrl: that.props.onDelUrl });
 	    }))));
 	  }
@@ -18832,7 +18843,7 @@
 
 
 	// module
-	exports.push([module.id, "@keyframes bookmarkShow {\n  0% {\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.addurlbox {\n  height: 0;\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-items: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}\n\n.item-animation-enter {\n  opacity: 0.01;\n  transition: opacity .7s ease-in;\n}\n\n.item-animation-enter.item-animation-enter-active {\n  opacity: 1;\n}\n\n.item-animation-leave {\n  opacity: 1;\n  transition: opacity .7s ease-in;\n}\n\n.item-animation-leave.item-animation-leave-active {\n  opacity: 0.01;\n}\n\n.bookmarksbox {\n  animation: bookmarkShow 400ms ease-out 300ms forwards;\n}", ""]);
+	exports.push([module.id, "@keyframes bookmarkShow {\n  0% {\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n.addurlbox {\n  overflow: hidden;\n  transition: height 300ms;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.addurlbox.hide {\n  height: 0;\n  border-bottom: none;\n}\n\n.addurlbox.show {\n  height: 35px;\n  border-bottom: 1px solid #ebebeb;\n}\n\n.addurlbox input {\n  border: none;\n  border-left: 1px solid #d8d8d8;\n  outline: none;\n  height: 35px;\n  padding-left: 10px;\n  width: 200px;\n  box-sizing: border-box;\n}\n\n.addurlbox input:last-of-type {\n  border-right: 1px solid #d8d8d8;\n}\n\n.addurlbox form {\n  display: flex;\n  align-items: center;\n}\n\n.addurlbox button {\n  border: none;\n  outline: none;\n  width: 44px;\n  height: 29px;\n  color: #fff;\n  cursor: pointer;\n  margin-left: 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.addurlbox button:first-of-type {\n  background-color: #38f;\n}\n\n.addurlbox button:last-of-type {\n  margin: 0 5px;\n}\n\n\n.addurlbutton {\n  background-color: transparent;\n  border: none;\n  outline: none;\n  margin-right: 5px;\n  cursor: pointer;\n}\n\n.item-animation-enter {\n  opacity: 0.01;\n  transition: opacity .7s ease-in;\n}\n\n.item-animation-enter.item-animation-enter-active {\n  opacity: 1;\n}\n\n.item-animation-leave {\n  opacity: 1;\n  transition: opacity .7s ease-in;\n}\n\n.item-animation-leave.item-animation-leave-active {\n  opacity: 0.01;\n}\n\n.bookmarksbox {\n  animation: bookmarkShow 400ms ease-out 300ms forwards;\n}", ""]);
 
 	// exports
 

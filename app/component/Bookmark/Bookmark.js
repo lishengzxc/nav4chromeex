@@ -7,13 +7,16 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Bookmark = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
-    return {}
+    return {
+      addUrlBoxDisplay: false
+    }
   },
 
-  showAddUrlBox: function () {
-    this.refs.addurlbox.getDOMNode().style.height = '35px';
-    this.refs.addurlbox.getDOMNode().style.borderBottom = '1px solid #ebebeb';
-    this.refs['name'].getDOMNode().focus();
+  toggleAddUrlBox: function () {
+    if (!this.state.addUrlBoxDisplay) this.refs['name'].getDOMNode().focus();
+    this.setState({
+      addUrlBoxDisplay: !this.state.addUrlBoxDisplay
+    })
   },
 
   hideAddUrlBox: function () {
@@ -37,14 +40,22 @@ var Bookmark = React.createClass({
   render: function () {
     var bookmarkList = this.props.bookmarkList;
     var that = this;
+
+    var classSet = React.addons.classSet;
+    var addUrlBoxClasses = classSet({
+      'addurlbox': true,
+      'hide': !this.state.addUrlBoxDisplay,
+      'show': this.state.addUrlBoxDisplay
+    });
+
     return (
       <div className="bookmarksbox">
         <div className="bookmarksbox-header">
-          <button className="addurlbutton" onClick={this.showAddUrlBox}>
+          <button className="addurlbutton" onClick={this.toggleAddUrlBox}>
             <i className="fa fa-plus"></i>
           </button>
         </div>
-        <div className="addurlbox" ref='addurlbox' onSubmit={this.addUrl}>
+        <div className={addUrlBoxClasses} ref='addurlbox' onSubmit={this.addUrl}>
           <form ref='addform'>
             <input type="text" ref="name" placeholder='NAME' valueLink={this.linkState('name')} required/>
             <input type="url" placeholder="URL" valueLink={this.linkState('url')} required/>
