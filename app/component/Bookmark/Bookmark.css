@@ -9,10 +9,11 @@
 
 .addurlbox {
   overflow: hidden;
-  transition: height 300ms;
+  transition: height 300ms ease-out;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
 }
 
 .addurlbox.hide {
