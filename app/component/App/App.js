@@ -32,8 +32,8 @@ var App = React.createClass({
 
 
   getInitialState: function () {
-    // TODO: 删除的BUG待修复
-    var list = JSON.parse(localStorage.getItem('bookmarkList') ? localStorage.getItem('bookmarkList') : '[{"name":"Github","url":"https://github.com"}]');
+
+    var list = JSON.parse(localStorage.getItem('bookmarkList') ? localStorage.getItem('bookmarkList') : '[]');
     list.forEach(function (value, index) {
       value.key = index;
     });
