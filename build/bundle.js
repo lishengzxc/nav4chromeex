@@ -18642,7 +18642,7 @@
 
 
 	// module
-	exports.push([module.id, ".avatar {\n  cursor: pointer;\n}\n\n.nv-header {\n  text-align: right;\n}\n\n.searcher-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.searcher-animation-enter.searcher-animation-enter-active {\n  opacity: 1;\n}\n\n.notice {\n  text-align: center;\n  color: #cccccc;\n}\n\n.notice code {\n  padding: 2px 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  background-color: #444;\n}", ""]);
+	exports.push([module.id, ".avatar {\n  cursor: pointer;\n}\n\n.nv-header {\n  text-align: right;\n}\n\n.searcher-animation-enter {\n  opacity: 0.01;\n  transition: opacity .5s ease-in;\n}\n\n.searcher-animation-enter.searcher-animation-enter-active {\n  opacity: 1;\n}\n\n.notice {\n  text-align: center;\n  color: #cccccc;\n}\n\n.notice code {\n  padding: 2px 5px;\n  border-radius: 2px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}", ""]);
 
 	// exports
 

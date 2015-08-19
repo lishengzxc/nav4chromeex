@@ -83,6 +83,7 @@ var App = React.createClass({
 
     return (
       <div>
+        
         <Searcher/>
         <Bookmark ref="bookmark" bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
