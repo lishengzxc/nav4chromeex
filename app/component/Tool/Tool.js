@@ -1,3 +1,13 @@
-/**
- * Created by lisheng on 15/8/19.
- */
+require('./Tool.css');
+
+var React = require('react');
+
+var Tool = React.createClass({
+  render: () => (
+    <div className="tool">
+
+    </div>
+  )
+});
+
+module.exports = Tool;

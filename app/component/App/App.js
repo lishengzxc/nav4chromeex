@@ -3,6 +3,7 @@ var React = require('react');
 var Searcher = require('../Searcher/Searcher');
 var Bookmark = require('../Bookmark/Bookmark');
 var Toast = require('../Toast/Toast');
+var Tool = require('../Tool/Tool');
 
 var App = React.createClass({
 
@@ -83,7 +84,7 @@ var App = React.createClass({
 
     return (
       <div>
-        
+        <Tool/>
         <Searcher/>
         <Bookmark ref="bookmark" bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
         <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>

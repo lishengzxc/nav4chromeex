@@ -18522,6 +18522,7 @@
 	var Searcher = __webpack_require__(164);
 	var Bookmark = __webpack_require__(167);
 	var Toast = __webpack_require__(191);
+	var Tool = __webpack_require__(194);
 
 	var App = React.createClass({ displayName: "App",
 
@@ -18601,7 +18602,7 @@
 
 	  render: function render() {
 
-	    return React.createElement("div", null, React.createElement(Searcher, null), React.createElement(Bookmark, { ref: "bookmark", bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl }), React.createElement("img", { className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop }), React.createElement("p", { className: "notice" }, "Press ", React.createElement("code", null, "Shift"), " + ", React.createElement("code", null, "N"), " to Open the AddBox."), React.createElement(Toast, { ref: "toast", toastContent: this.state.content }));
+	    return React.createElement("div", null, React.createElement(Tool, null), React.createElement(Searcher, null), React.createElement(Bookmark, { ref: "bookmark", bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl }), React.createElement("img", { className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop }), React.createElement("p", { className: "notice" }, "Press ", React.createElement("code", null, "Shift"), " + ", React.createElement("code", null, "N"), " to Open the AddBox."), React.createElement(Toast, { ref: "toast", toastContent: this.state.content }));
 	  }
 	});
 
@@ -20912,6 +20913,65 @@
 
 	// module
 	exports.push([module.id, "@keyframes toastShow {\n  0% {\n    opacity: 0.01;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n@keyframes toastHide {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0.01;\n  }\n}\n\n.toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: 15px;\n  background-color: rgba(0, 0, 0, .5);\n  padding: 10px;\n  color: #fff;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  border-radius: 2px;\n}\n\n.toast.show {\n  display: block;\n}\n\n.toast.hide {\n  display: none;\n}\n\n.toast.enter {\n  animation: toastShow 200ms linear 0s;\n}\n\n.toast.leave {\n  animation: toastHide 200ms linear 0s forwards;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(195);
+
+	var React = __webpack_require__(5);
+
+	var Tool = React.createClass({ displayName: "Tool",
+	  render: function render() {
+	    return React.createElement("div", { className: "tool" });
+	  }
+
+	});
+
+	module.exports = Tool;
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(196);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(4)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./Tool.css", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./Tool.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".tool {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 35px;\n  background-color: rgba(0, 0, 0, .7);\n}", ""]);
 
 	// exports
 
