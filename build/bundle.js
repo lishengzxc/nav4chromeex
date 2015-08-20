@@ -20929,7 +20929,7 @@
 
 	var Tool = React.createClass({ displayName: "Tool",
 	  render: function render() {
-	    return React.createElement("div", { className: "tool" });
+	    return React.createElement("div", { className: "tool" }, React.createElement("div", { className: "fa fa-bars" }));
 	  }
 
 	});
@@ -20971,7 +20971,7 @@
 
 
 	// module
-	exports.push([module.id, ".tool {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 35px;\n  background-color: rgba(0, 0, 0, .7);\n}", ""]);
+	exports.push([module.id, ".tool {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: flex-start;\n  padding: 10px 0;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 35px;\n  background-color: rgba(0, 0, 0, .7);\n}\n\n.tool .fa {\n  color: #fff;\n  font-size: 18px;\n  cursor: pointer;\n}", ""]);
 
 	// exports
 
