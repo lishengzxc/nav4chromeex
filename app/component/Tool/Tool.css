@@ -1,19 +1,40 @@
 .tool {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 10px 0;
   position: fixed;
   top: 0;
-  left: 0;
   bottom: 0;
-  width: 35px;
-  background-color: rgba(0, 0, 0, .7);
+  width: 250px;
+  background-color: #fff;
+  z-index: 2333;
+  transition: transform 300ms ease-out;
 }
 
-.tool .fa {
+.tool.close {
+  transform: translateX(-210px);
+}
+
+.tool.open {
+  transform: translateX(0);
+}
+
+.tool-contain {
+  width: 210px;
+}
+
+.tool-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #313131;
+  width: 40px;
+}
+
+.tool-bar .fa {
+  margin-top: 10px;
   color: #fff;
-  font-size: 18px;
+  font-size: 25px;
   cursor: pointer;
+}
+
+.tool .fa-bars::before {
 }

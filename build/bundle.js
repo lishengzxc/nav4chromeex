@@ -20928,10 +20928,28 @@
 	var React = __webpack_require__(5);
 
 	var Tool = React.createClass({ displayName: "Tool",
-	  render: function render() {
-	    return React.createElement("div", { className: "tool" }, React.createElement("div", { className: "fa fa-bars" }));
-	  }
+	  getInitialState: function getInitialState() {
+	    return {
+	      toolDisplay: false
+	    };
+	  },
 
+	  toolToggle: function toolToggle() {
+	    this.setState({
+	      toolDisplay: !this.state.toolDisplay
+	    });
+	  },
+
+	  render: function render() {
+	    var classSet = React.addons.classSet;
+	    var toolState = classSet({
+	      'tool': true,
+	      'open': this.state.toolDisplay,
+	      'close': !this.state.toolDisplay
+	    });
+
+	    return React.createElement("div", { className: toolState }, React.createElement("div", { className: "tool-contain" }), React.createElement("div", { className: "tool-bar" }, React.createElement("div", { className: "fa fa-bars", onClick: this.toolToggle })));
+	  }
 	});
 
 	module.exports = Tool;
@@ -20971,7 +20989,7 @@
 
 
 	// module
-	exports.push([module.id, ".tool {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: flex-start;\n  padding: 10px 0;\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 35px;\n  background-color: rgba(0, 0, 0, .7);\n}\n\n.tool .fa {\n  color: #fff;\n  font-size: 18px;\n  cursor: pointer;\n}", ""]);
+	exports.push([module.id, ".tool {\n  display: flex;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 250px;\n  background-color: #fff;\n  z-index: 2333;\n  transition: transform 300ms ease-out;\n}\n\n.tool.close {\n  transform: translateX(-210px);\n}\n\n.tool.open {\n  transform: translateX(0);\n}\n\n.tool-contain {\n  width: 210px;\n}\n\n.tool-bar {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: #313131;\n  width: 40px;\n}\n\n.tool-bar .fa {\n  margin-top: 10px;\n  color: #fff;\n  font-size: 25px;\n  cursor: pointer;\n}\n\n.tool .fa-bars::before {\n}", ""]);
 
 	// exports
 
