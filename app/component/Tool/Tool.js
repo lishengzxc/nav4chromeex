@@ -25,7 +25,8 @@ var Tool = React.createClass({
 
     return (
       <div className={toolState}>
-        <div className="tool-contain"></div>
+        <div className="tool-contain">
+        </div>
         <div className="tool-bar">
           <div className="fa fa-bars" onClick={this.toolToggle}></div>
         </div>
