@@ -5,7 +5,7 @@ var React = require('react');
 var Tool = React.createClass({
   getInitialState: () => {
     return {
-      toolDisplay: true
+      toolDisplay: false
     };
   },
 
