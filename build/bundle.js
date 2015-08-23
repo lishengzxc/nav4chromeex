@@ -88,7 +88,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  font-size: 62.5%;\n}\n\nbody {\n  font-family: \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  opacity: 0.01;\n  transform: translateY(-20px);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n  min-height: 45px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.avatar {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
+	exports.push([module.id, "html {\n  font-size: 62.5%;\n}\n\nbody {\n  font-family: \"Segoe UI\", \"Lucida Grande\", Helvetica, Arial, \"Microsoft YaHei\", FreeSans, Arimo, \"Droid Sans\", \"wenquanyi micro hei\", \"Hiragino Sans GB\", \"Hiragino Sans GB W3\", FontAwesome, sans-serif;\n  font-size: 14px;\n  background-color: rgb(251, 252, 250);\n}\n\nbody, p {\n  margin: 0;\n}\n\na {\n  color: #0089dc;\n  text-decoration: none;\n  font-weight: normal;\n}\n\na:visited {\n  color: #0089dc;\n}\n\n.nv-header {\n  width: 100%;\n  height: 50px;\n  background-color: #24F4F5;\n  border-bottom: 1px solid #24ebec;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-header p {\n  line-height: 35px;\n  padding-right: 15px;\n  text-align: right;\n}\n\n.nv-searcher {\n  position: relative;\n  padding-top: 40px;\n}\n\n.nv-searcher form {\n  display: flex;\n  width: 536px;\n  margin: 0 auto;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.nv-searcher-input {\n  width: 521px;\n  height: 20px;\n  padding: 9px 7px;\n  font: 16px arial;\n  border: 1px solid #d8d8d8;\n  border-right: 0;\n  vertical-align: top;\n  outline: none;\n  box-shadow: none;\n}\n\n.nv-searcher-submit {\n  cursor: pointer;\n  width: 102px;\n  height: 40px;\n  line-height: 38px;\n  padding: 0;\n  background: none;\n  background-color: #38f;\n  font-size: 16px;\n  color: white;\n  box-shadow: none;\n  font-weight: normal;\n  border: 1px solid #266dff;\n}\n\n.bookmarksbox {\n  margin: 30px auto;\n  width: 1000px;\n  border: 1px solid #ebebeb;\n  overflow: hidden;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n  opacity: 0.01;\n  transform: translateY(-20px);\n}\n\n.bookmarksbox-header {\n  height: 35px;\n  background-color: #f9f9f9;\n  border-bottom: 1px solid #ebebeb;\n  display: flex;\n  justify-content: flex-end;\n}\n\n.bookmarksbox-body {\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  padding: 5px;\n  min-height: 45px;\n}\n\n.bookmarksbox-body-item {\n  float: left;\n  width: 20%;\n  height: 45px;\n  cursor: pointer;\n}\n\n.bookmarksbox-body-item:hover {\n  background-color: #f5f5f5;\n}\n\n.bookmarksbox-body-item a {\n  display: block;\n  line-height: 45px;\n  outline: none;\n  padding-left: 25px;\n}\n\n.scrollTop {\n  position: fixed;\n  right: 15px;\n  bottom: 0;\n}\n\n", ""]);
 
 	// exports
 
@@ -18602,7 +18602,7 @@
 
 	  render: function render() {
 
-	    return React.createElement("div", null, React.createElement(Tool, null), React.createElement(Searcher, null), React.createElement(Bookmark, { ref: "bookmark", bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl }), React.createElement("img", { className: "avatar", src: "avatar.gif", alt: "", onClick: this.scrollToTop }), React.createElement("p", { className: "notice" }, "Press ", React.createElement("code", null, "Shift"), " + ", React.createElement("code", null, "N"), " to Open the AddBox."), React.createElement(Toast, { ref: "toast", toastContent: this.state.content }));
+	    return React.createElement("div", null, React.createElement(Tool, null), React.createElement(Searcher, null), React.createElement(Bookmark, { ref: "bookmark", bookmarkList: this.state.bookmarkList, onAddUrl: this.onAddUrl, onDelUrl: this.onDelUrl }), React.createElement("img", { className: "scrollTop", src: "avatar.gif", alt: "", onClick: this.scrollToTop }), React.createElement("p", { className: "notice" }, "Press ", React.createElement("code", null, "Shift"), " + ", React.createElement("code", null, "N"), " to Open the AddBox."), React.createElement(Toast, { ref: "toast", toastContent: this.state.content }));
 	  }
 	});
 
@@ -20930,7 +20930,7 @@
 	var Tool = React.createClass({ displayName: "Tool",
 	  getInitialState: function getInitialState() {
 	    return {
-	      toolDisplay: false
+	      toolDisplay: true
 	    };
 	  },
 
@@ -20948,7 +20948,7 @@
 	      'close': !this.state.toolDisplay
 	    });
 
-	    return React.createElement("div", { className: toolState }, React.createElement("div", { className: "tool-contain" }), React.createElement("div", { className: "tool-bar" }, React.createElement("div", { className: "fa fa-bars", onClick: this.toolToggle })));
+	    return React.createElement("div", { className: toolState }, React.createElement("div", { className: "tool-contain" }, React.createElement("div", { className: "avatar" }, React.createElement("img", { src: "http://tp4.sinaimg.cn/2427441943/180/40065130095/1" }))), React.createElement("div", { className: "tool-bar" }, React.createElement("div", { className: "fa fa-bars", onClick: this.toolToggle })));
 	  }
 	});
 
@@ -20989,7 +20989,7 @@
 
 
 	// module
-	exports.push([module.id, ".tool {\n  display: flex;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 250px;\n  background-color: #fff;\n  z-index: 2333;\n  transition: transform 300ms ease-out;\n}\n\n.tool.close {\n  transform: translateX(-210px);\n}\n\n.tool.open {\n  transform: translateX(0);\n}\n\n.tool-contain {\n  width: 210px;\n}\n\n.tool-bar {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: #313131;\n  width: 40px;\n}\n\n.tool-bar .fa {\n  margin-top: 10px;\n  color: #fff;\n  font-size: 25px;\n  cursor: pointer;\n}\n\n.tool .fa-bars::before {\n}", ""]);
+	exports.push([module.id, ".tool {\n  display: flex;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 200px;\n  background-color: #fff;\n  z-index: 2333;\n  transform: translateX(-170px);\n  transition: transform 300ms ease-out;\n}\n\n.tool.close {\n  transform: translateX(-170px);\n}\n\n.tool.open {\n  transform: translateX(0);\n}\n\n.tool-contain {\n  width: 170px;\n}\n\n.tool-bar {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: #313131;\n  width: 30px;\n}\n\n.tool-bar .fa {\n  margin-top: 10px;\n  color: #fff;\n  font-size: 20px;\n  cursor: pointer;\n}\n\n.tool .fa-bars::before {\n}\n\n.tool .avatar {\n  width: 105px;\n  height: 105px;\n  margin: 35px auto;\n  border-radius: 50%;\n  padding: 5px;\n  box-sizing: border-box;\n  background: rgba(150,150,150,0.3);\n}\n\n.tool .avatar img {\n  width: 95px;\n  border-radius: 50%;\n}", ""]);
 
 	// exports
 

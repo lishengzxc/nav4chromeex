@@ -87,7 +87,7 @@ var App = React.createClass({
         <Tool/>
         <Searcher/>
         <Bookmark ref="bookmark" bookmarkList={this.state.bookmarkList} onAddUrl={this.onAddUrl} onDelUrl={this.onDelUrl}/>
-        <img className="avatar" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
+        <img className="scrollTop" src="avatar.gif" alt="" onClick={this.scrollToTop}/>
         <p className="notice">Press <code>Shift</code> + <code>N</code> to Open the AddBox.</p>
         <Toast ref="toast" toastContent={this.state.content}/>
       </div>

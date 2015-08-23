@@ -5,7 +5,7 @@ var React = require('react');
 var Tool = React.createClass({
   getInitialState: () => {
     return {
-      toolDisplay: false
+      toolDisplay: true
     };
   },
 
@@ -26,6 +26,7 @@ var Tool = React.createClass({
     return (
       <div className={toolState}>
         <div className="tool-contain">
+          <div className="avatar"><img src="http://tp4.sinaimg.cn/2427441943/180/40065130095/1"/></div>
         </div>
         <div className="tool-bar">
           <div className="fa fa-bars" onClick={this.toolToggle}></div>
