@@ -20782,7 +20782,7 @@
 	  },
 
 	  render: function render() {
-	    return React.createElement("li", { className: "bookmarksbox-body-item" }, React.createElement("a", { href: this.props.url, target: "_blank" }, React.createElement("span", null, this.props.name)), React.createElement("i", { className: "fa fa-close del", onClick: this.showConfirm }), React.createElement("div", { className: "confirm", style: {
+	    return React.createElement("li", { className: "bookmarksbox-body-item" }, React.createElement("a", { href: this.props.url }, React.createElement("span", null, this.props.name)), React.createElement("i", { className: "fa fa-close del", onClick: this.showConfirm }), React.createElement("div", { className: "confirm", style: {
 	        'display': this.state.visible ? 'flex' : 'none'
 	      } }, React.createElement("span", null, "Delete it？"), React.createElement("button", { className: "ok", onClick: this.del }, React.createElement("i", { className: "fa fa-check" })), React.createElement("button", { className: "cancel", onClick: this.hideConfirm }, React.createElement("i", { className: "fa fa-close" }))));
 	  }
@@ -20989,7 +20989,7 @@
 
 
 	// module
-	exports.push([module.id, ".tool {\n  display: flex;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 200px;\n  background-color: #fff;\n  z-index: 2333;\n  transform: translateX(-170px);\n  transition: transform 300ms ease-out;\n}\n\n.tool.close {\n  transform: translateX(-170px);\n}\n\n.tool.open {\n  transform: translateX(0);\n}\n\n.tool-contain {\n  width: 170px;\n}\n\n.tool-bar {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: #313131;\n  width: 30px;\n}\n\n.tool-bar .fa {\n  margin-top: 10px;\n  color: #fff;\n  font-size: 20px;\n  cursor: pointer;\n}\n\n.tool .fa-bars::before {\n}\n\n.tool .avatar {\n  width: 105px;\n  height: 105px;\n  margin: 35px auto;\n  border-radius: 50%;\n  padding: 5px;\n  box-sizing: border-box;\n  background: rgba(150,150,150,0.3);\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);\n}\n\n.tool .avatar img {\n  width: 95px;\n  border-radius: 50%;\n}", ""]);
+	exports.push([module.id, ".tool {\n  display: flex;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 200px;\n  background-color: #fff;\n  z-index: 2333;\n  transform: translateX(-170px);\n  transition: transform 300ms ease-out;\n}\n\n.tool.close {\n  transform: translateX(-170px);\n}\n\n.tool.open {\n  transform: translateX(0);\n}\n\n.tool-contain {\n  width: 170px;\n}\n\n.tool-bar {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-color: #313131;\n  width: 30px;\n}\n\n.tool-bar .fa {\n  margin-top: 10px;\n  color: #fff;\n  font-size: 20px;\n  cursor: pointer;\n}\n\n.tool .fa-bars::before {\n}\n\n.tool .avatar {\n  width: 105px;\n  height: 105px;\n  margin: 35px auto;\n  border-radius: 50%;\n  padding: 5px;\n  box-sizing: border-box;\n  background: rgba(150,150,150,0.3);\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);\n}\n\n.tool .avatar img {\n  width: 95px;\n  border-radius: 50%;\n}", ""]);
 
 	// exports
 

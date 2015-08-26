@@ -28,7 +28,7 @@ var BookmarkItem = React.createClass({
   render: function () {
     return (
       <li className="bookmarksbox-body-item">
-        <a href={this.props.url} target="_blank">
+        <a href={this.props.url}>
           <span>{this.props.name}</span>
         </a>
         <i className="fa fa-close del" onClick={this.showConfirm}></i>
