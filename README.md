@@ -15,5 +15,5 @@ npm run build (or webpack)
 webpack --w
 ```
 
-###TODO
+###接下来要做得事
 <input type="checkbox">flux改写改项目
