@@ -16,4 +16,4 @@ webpack --w
 ```
 
 ###接下来要做得事
-<input type="checkbox">flux改写改项目
+- flux改写项目
